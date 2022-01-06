@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import pic02 from '../images/pic02.jpg'
-import pic03 from '../images/pic03.jpg'
 import { Link, graphql, StaticQuery } from "gatsby"
 
 
@@ -101,30 +99,55 @@ class Main extends React.Component {
           <h2 className="major">Work</h2>
           <ol>
             <li>
-            <h3>Augmented Reality Events App </h3>
-            • Designed a system for rendering AR elements on stages for concerts
-            and festivals. <br/>
-            • Won first place of the Hackathon with prizes worth ₹ 15,000. Was team
-            lead <br/>
-            • Tech Stack: Unity, ARCore <br/>
-            </li>
-            <li>
             <h3>Deep Reinforcement Learning for Autonomous Underwater Vehicles  </h3>
-            • Trained a deep reinforcement agent to control an AUV. Used the
-Proximal Policy Optimization algorithm for learning. Agent can
-orient and reach a small red buoy successfully. Simulated and trained
-the model in Unity Game Engine. Major Project of Bachelors degree<br/>
-            • Training using Unity ml-agents <br/>
+              <p>
+              Trained a deep reinforcement agent to control an AUV. Used the 
+              Proximal Policy Optimization algorithm for learning. Agent can
+              orient and reach a small red buoy successfully. Simulated and trained
+              the model in Unity Game Engine. Major Project of Bachelors degree<br/>
+              Simulation and training using Unity3D ml-agents <br/>
+              </p>
+              <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/_IkSe-zG4qA" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>  
+              </iframe>
+              <a href= "https://github.com/husainhz7/AUV-FinalYear-Unity">Github link</a>
             </li>
+            <br/>
             <li>
-            <h3>Camera Tuning AI trained using Deep Reinforcement
-learning</h3>
-            • Trained a deep reinforcement agent to tune the white- balance setting
-of an Android Camera. The agent attempts to replicate a manually
-adjusted photo. Captured photos are sent to the PC for training and
-inference. Minor Project for Bachelors degree. <br/>
-            • Training using Keras, image sent over sockets <br/>
+              <h3>Camera Tuning AI trained using Deep Reinforcement learning</h3>
+              Trained a deep reinforcement agent to tune the white- balance setting
+              of an Android Camera. The agent attempts to replicate a manually
+              adjusted photo. Captured photos are sent to the PC for training and 
+              inference. Minor Project for Bachelors degree. <br/> 
+              Training using Keras, image sent over sockets <br/>  
             </li>
+            <br />
+            <li>
+              <h3>Augmented Reality Events App </h3>
+              Designed a system for rendering AR elements on stages for concerts
+              and festivals. Won first place of the Hackathon with prizes worth ₹ 15,000. Was team
+              lead <br/>
+              Tech Stack: Unity, ARCore <br/>
+              <a href="https://github.com/husainhz7/Event-Fx">Github link</a><br/>
+              </li>
+              <br/>
+            <li>
+              <h3>Ludum jam 46, La Revolution</h3>
+              Made a game in 3 days which features a gun to make people join the revolution. 
+              Made in a top down style. 
+              <a href="https://ldjam.com/events/ludum-dare/46/la-revolution"> Play here </a> <br/>
+            </li>
+            <br />
+            <li>
+              <h3>Shopify Extension to Measure Clothes measurement</h3>
+              Uses tensorflow.js to approximate body measurements using the webcam. 
+              Can be used as an iframe in a shopify store. Currently unsupported 
+              <a href="https://apps.shopify.com/body-measure"> Check it out here </a> <br/>
+            </li>
+            <br/>
           </ol>
           {close}
         </article>
@@ -142,64 +165,105 @@ inference. Minor Project for Bachelors degree. <br/>
           </span> */}
           <p>
             <p>
-           Software Engineer at Microsoft <br />
+           Software Engineer at Microsoft (Microsoft Todo Backend). Building REST APIs, messaging systems
+           to enhance shared task lists across distributed instances, using ASP.NET<br />
            Studied Computer Engineering at Aligarh Muslim University. 
            </p>
            <p>
-          Was a hobbyist Game developer, huge fan of single player experiences. Experienced in Unity3D 
-          Dabbled in Artificial neural networks and Deep Reinforcement Learning. Used Keras, Unity ml agents. 
-          Used ArCore in Unity. Deeply intereseted in Mixed Reality, bullish on its ability to replace the smartphone.
+          Was a hobbyist Game developer, huge fan of single player experiences. Experienced in Unity3D. 
+          Dabbled in Artificial neural networks and Deep Reinforcement Learning. Used Keras, Unity ml-agents. 
+          Made Augmented Reality apps using ArCore in Unity. Deeply intereseted in Mixed Reality, bullish on its ability to replace the smartphone.
           </p>
           <p>
             Bullish and interested in projects on 
             <ul>
               <li>
-              Smart Glasses, Mixed Reality
+                Learning based approaches for automation. robotics
               </li>
               <li>
-              Creator Economy
+                Smart Glasses, Mixed Reality Applications
               </li>
               <li>
-              Shared mirror worlds: A Information rich, virtual version of the world
+                Creator Economy
               </li>
               <li>
-              Metaverse interactions: include interesting uses of crypto here hah
+                Shared mirror worlds: A Information rich, virtual version of the world
+              </li>
+              <li>
+                Metaverse interactions, tackling real-time
               </li>
             </ul>
           </p>
-
-          <p>
-            Favourites
-            <ul>
-              <li>
-                Half Life
-              </li>
-              <li>
-                Undertale
-              </li>
-              <li>
-                Doom
-              </li>
-              <li>
-                The Office
-              </li>
-              <li>
-                Attack On Titan
-              </li>
-              <li>
-                Parasite
-              </li>
-              <li>
-                Lex Fridman
-              </li>
-              <li>
-                TwoMad
-              </li>
-              <li>
-                ...
-              </li>
-            </ul>
-          </p>
+          <table>
+            <tr>
+              <td>
+              <p>
+                Favourites
+                <ul>
+                  <li>
+                    Half Life
+                  </li>
+                  <li>
+                    Undertale
+                  </li>
+                  <li>
+                    Doom
+                  </li>
+                  <li>
+                    The Office
+                  </li>
+                  <li>
+                    Attack On Titan
+                  </li>
+                  <li>
+                    Parasite
+                  </li>
+                  <li>
+                    Lex Fridman
+                  </li>
+                  <li>
+                    ...
+                  </li>
+                </ul>
+              </p>
+              </td>
+              <td>
+                <p>
+                  Recent Reads:
+                  <li>
+                    The Dream Machine
+                  </li>
+                  <li>
+                    Snow Crash
+                  </li>
+                  <li>
+                    Inside the Googleplex
+                  </li>
+                  <li>
+                    The Upstarts
+                  </li>
+                  <li>
+                    Brave New World
+                  </li>
+                </p>
+                <p>
+                  Recent plays:
+                  <li>
+                    Deathloop
+                  </li>
+                  <li>
+                    Cyberpunk 2077
+                  </li>
+                  <li>
+                    No Man's Sky
+                  </li>
+                  <li>
+                    Age of Empires IV
+                  </li>
+                </p>
+              </td>
+            </tr>
+          </table>
           </p>
           {close}
         </article>
@@ -241,6 +305,11 @@ inference. Minor Project for Bachelors degree. <br/>
                 className="icon fa-twitter"
               >
                 <span className="label">Twitter</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCWYArmK19PZ4fikClJW7REA" className="icon fa-youtube">
+                <span className="label">Youtube</span>
               </a>
             </li>
             <li>

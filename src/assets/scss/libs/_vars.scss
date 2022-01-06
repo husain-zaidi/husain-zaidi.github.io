@@ -21,12 +21,13 @@
 
 // Font.
 	$font: (
-		family:						('Source Sans Pro', sans-serif),
+		// family:						('Source Sans Pro', sans-serif),
+		family:      				('Play', sans-serif),
 		family-fixed:				('Courier New', monospace),
 		weight:						300,
 		weight-bold:				600,
 		letter-spacing:				0.2rem,
-		letter-spacing-heading:		0.5rem
+		letter-spacing-heading:		0.2rem
 	);
 
 // Palette.

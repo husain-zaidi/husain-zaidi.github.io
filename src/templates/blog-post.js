@@ -1,19 +1,30 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
-
+import Helmet from 'react-helmet'
+import { graphql } from "gatsby"
+import '../assets/scss/main.scss'
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata?.title || `Blog`
 
   return (
-    <div>
+    <>
+     <Helmet
+        title={siteTitle}
+        meta={[
+          { name: 'description', content: 'Blog' },
+          { name: 'keywords', content: 'sample, something' },
+        ]}
+      >
+        <html lang="en" />
+      </Helmet>
       <article
-        className="blog-post"
+        className="active"
         itemScope
         itemType="http://schema.org/Article"
-        style={{ margin: `3rem auto`, maxWidth: 600 }}
+        style={{ margin: `3rem auto`, padding: `10px`, maxWidth: 600 }}
       >
+      <a href="/" >Home</a>
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
@@ -26,7 +37,8 @@ const BlogPostTemplate = ({ data, location }) => {
         <footer>
         </footer>
       </article>
-    </div>
+    </>
+    
   )
 }
 

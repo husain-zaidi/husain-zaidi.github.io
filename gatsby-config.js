@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Husain\'s Blog',
+    title: 'HHZ Blog',
     author: 'Husain Zaidi',
     description: 'Software engineer @microsoft',
   },
@@ -15,7 +15,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/samurai-icon.png', // This path is relative to the root of the site.
       },
     },
     {
@@ -25,7 +25,26 @@ module.exports = {
         name: `blog`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-relative-images`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              linkImagesToOriginal: false,
+              sizeByPixelDensity: true,
+              showCaptions: true
+            }
+          },
+        ],
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     'gatsby-plugin-sass',
   ],
 }
