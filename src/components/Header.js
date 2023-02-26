@@ -3,9 +3,6 @@ import React from 'react'
 
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
-    <div className="logo">
-      <span className="icon fa-bolt"></span>
-    </div>
     <div className="content">
       <div className="inner">
         <h1>Husain Haider Zaidi</h1>

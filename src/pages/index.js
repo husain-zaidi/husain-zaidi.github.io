@@ -5,6 +5,8 @@ import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 
+import opus from "../images/opus.mp3" 
+
 class IndexPage extends React.Component {
   constructor(props) {
     super(props)
@@ -19,6 +21,8 @@ class IndexPage extends React.Component {
     this.handleCloseArticle = this.handleCloseArticle.bind(this)
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.bgmusic = new Audio(opus)
+    this.isPlaying = false
   }
 
   componentDidMount () {
@@ -82,6 +86,7 @@ class IndexPage extends React.Component {
   }
 
   handleClickOutside(event) {
+   
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
       if (this.state.isArticleVisible) {
         this.handleCloseArticle();
@@ -104,6 +109,21 @@ class IndexPage extends React.Component {
               setWrapperRef={this.setWrapperRef}
             />
             <Footer timeout={this.state.timeout} />
+          <button
+            onClick={() => {
+              if (!this.isPlaying){
+                this.bgmusic.play();
+                this.isPlaying = true;
+              } 
+              else
+              {
+                this.bgmusic.pause();
+                this.isPlaying = false;
+              }
+            }}
+          >
+            ▶️
+          </button>
           </div>
           <div id="bg"></div>
         </div>
