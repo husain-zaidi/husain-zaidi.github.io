@@ -21,7 +21,7 @@ class IndexPage extends React.Component {
     this.handleCloseArticle = this.handleCloseArticle.bind(this)
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
-    this.bgmusic = new Audio(opus)
+    // this.bgmusic = new Audio(opus)
     this.isPlaying = false
   }
 
@@ -112,12 +112,12 @@ class IndexPage extends React.Component {
           <button
             onClick={() => {
               if (!this.isPlaying){
-                this.bgmusic.play();
+                // this.bgmusic.play();
                 this.isPlaying = true;
               } 
               else
               {
-                this.bgmusic.pause();
+                // this.bgmusic.pause();
                 this.isPlaying = false;
               }
             }}
