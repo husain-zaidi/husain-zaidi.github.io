@@ -20,7 +20,7 @@ LLMs do not have any concept of truth or consistency (unless temperature is 0, b
 Following the mind-blowing release of Bing chat, I had been curious as to how it was constructed and what methods are present in general to enhance LLMs capabilities using search. The following are some ways to 'augment' these models with retrieval to help aid their answers.
 
 ## WebGPT
-This finetuned version of GPT was trained to browse through a text-only version of Bing, where it could execute searching and scrolling actions. It can also "quote" text from the search results. It does these actions after being trained over human demonstrations. It keeps the context of what question it has been asked and what it had quoted, as every action is a new prompt to the model. After it has either issued the <end browsing> token or it had run out of actions to take, it then summarizes its collections of quotes to produce an answer. I highly suspect this is how Bing chat works, given the behaviour it displays when querying it
+This finetuned version of GPT was trained to browse through a text-only version of Bing, where it could execute searching and scrolling actions. It can also "quote" text from the search results. It does these actions after being trained over human demonstrations. It keeps the context of what question it has been asked and what it had quoted, as every action is a new prompt to the model. After it has either issued the <|end browsing|> token or it had run out of actions to take, it then summarizes its collections of quotes to produce an answer. I highly suspect this is how Bing chat works, given the behaviour it displays when querying it
 
 https://openai.com/blog/webgpt/
 
@@ -40,7 +40,7 @@ DSP is a framework for using neural Retrieval models joined with Large Langauge 
 
 [stanfordnlp/dsp: 𝗗𝗦𝗣: Demonstrate-Search-Predict. A framework for composing retrieval and language models for knowledge-intensive NLP. (github.com)](https://github.com/stanfordnlp/dsp)
 
-There is also an interesting approach to build a Bayesian-based world model which the LLM could refer to: How to make LLMs say true things | Evan Conrad (evanjconrad.com)
+There is also an interesting approach to build a Bayesian-based world model which the LLM could refer to: [How to make LLMs say true things | Evan Conrad (evanjconrad.com)](https://evanjconrad.com/posts/world-models)
 
 While some might argue that techniques like DSP are moving towards the realm of narrow AI, these techniques most likely will be powering consumer product solutions. DSP may have an advantage over WebGPT and LLMs with WolframAlpha, since it can leverage existing LMs and RMs without requiring additional fine-tuning or web browsing. However, this may also limit its ability to handle novel or complex queries that require more diverse sources of information.
 
