@@ -207,19 +207,25 @@ class Main extends React.Component {
                     Undertale
                   </li>
                   <li>
+                    Red Dead Redemption 2
+                  </li>
+                  <li>
                     Doom
                   </li>
                   <li>
-                    The Office
+                    Better Call Saul 
                   </li>
                   <li>
                     Attack On Titan
                   </li>
                   <li>
+                    Three body problem 
+                  </li>
+                  <li>
                     Parasite
                   </li>
                   <li>
-                    Lex Fridman
+                    Dwarkesh Patel
                   </li>
                   <li>
                     ...
@@ -231,10 +237,13 @@ class Main extends React.Component {
                 <p>
                   Recent Reads:
                   <li>
+                    Creative selection 
+                  </li>
+                  <li>
                     The Dream Machine
                   </li>
                   <li>
-                    Snow Crash
+                    Dune
                   </li>
                   <li>
                     Inside the Googleplex
@@ -301,7 +310,7 @@ class Main extends React.Component {
           <ul className="icons">
             <li>
               <a
-                href="https://twitter.com/husainhz7"
+                href="https://twitter.com/husainzaidi"
                 className="icon fa-twitter"
               >
                 <span className="label">Twitter</span>
