@@ -99,6 +99,21 @@ class Main extends React.Component {
           <h2 className="major">Work</h2>
           <ol>
             <li>
+              <h3>LIP-Loc: LiDAR Image Pretraining for Cross-Modal Localization</h3>
+              We apply CLIP-like contrastive symmetric loss
+              using batch construction technique to the domains of 2D image and 3D LiDAR points on the task of cross-modal localization.
+              WACV 2024 Workshop on Large Language and Vision Models for Autonomous Driving<br/> 
+              Training using Pytorch, <br/>  
+              <a href='https://github.com/Shubodh/lidar-image-pretrain-VPR'>Github Link</a>
+            </li>
+            <br/>
+            <li>
+              <h3>Nano GPT</h3>
+              Implemented a Decoder-only Transformer (GPT) from scratch using PyTorch. Followed @karpathy’s video lecture <br/>  
+              <a href='https://github.com/husainhz7/nanogpt-hhz'>Github Link</a>
+            </li>
+            <br/>
+            <li>
             <h3>Deep Reinforcement Learning for Autonomous Underwater Vehicles  </h3>
               <p>
               Trained a deep reinforcement agent to control an AUV. Used the 
@@ -165,13 +180,16 @@ class Main extends React.Component {
           </span> */}
           <p>
             <p>
-           Software Engineer at Microsoft (Microsoft Todo Backend). Building REST APIs, messaging systems
-           to enhance shared task lists across distributed instances, using ASP.NET<br />
-           Studied Computer Engineering at Aligarh Muslim University. 
+           Software Engineer 2 at Microsoft (Microsoft Todo Backend). Processing PBs of User logs using spark for Business metrics. Built REST APIs, messaging systems to enhance shared task lists across distributed instances, using ASP.NET
            </p>
            <p>
+            Am learning about VLMs, contributing to HuggingFace LeRobot. 
+            </p>
+            <p>
           Was a hobbyist Game developer, huge fan of single player experiences. Experienced in Unity3D. 
-          Dabbled in Artificial neural networks and Deep Reinforcement Learning. Used Keras, Unity ml-agents. 
+          Dabbled in Artificial neural networks and Deep Reinforcement Learning. Used Pytorch, Unity ml-agents. 
+          </p>
+           <p>
           Made Augmented Reality apps using ArCore in Unity. Deeply intereseted in Mixed Reality, bullish on its ability to replace the smartphone.
           </p>
           <p>
@@ -181,61 +199,24 @@ class Main extends React.Component {
                 Learning based approaches for automation. robotics
               </li>
               <li>
-                Smart Glasses, Mixed Reality Applications
+                Creator Economy, power to the masses!
               </li>
               <li>
-                Creator Economy
+                Shared mirror worlds: A Information rich, virtual simiulation of the world
               </li>
               <li>
-                Shared mirror worlds: A Information rich, virtual version of the world
-              </li>
-              <li>
-                Metaverse interactions, tackling real-time
+                Metaverse interactions, tackling real-time synchronous internet
               </li>
             </ul>
           </p>
           <table>
             <tr>
-              <td>
-              <p>
-                Favourites
-                <ul>
-                  <li>
-                    Half Life
-                  </li>
-                  <li>
-                    Undertale
-                  </li>
-                  <li>
-                    Red Dead Redemption 2
-                  </li>
-                  <li>
-                    Doom
-                  </li>
-                  <li>
-                    Better Call Saul 
-                  </li>
-                  <li>
-                    Attack On Titan
-                  </li>
-                  <li>
-                    Three body problem 
-                  </li>
-                  <li>
-                    Parasite
-                  </li>
-                  <li>
-                    Dwarkesh Patel
-                  </li>
-                  <li>
-                    ...
-                  </li>
-                </ul>
-              </p>
-              </td>
-              <td>
+            <td>
                 <p>
-                  Recent Reads:
+                  Books:
+                  <li>
+                    Profiles of the Future
+                  </li>
                   <li>
                     Creative selection 
                   </li>
@@ -249,14 +230,29 @@ class Main extends React.Component {
                     Inside the Googleplex
                   </li>
                   <li>
-                    The Upstarts
+                    The Things We Make
                   </li>
                   <li>
-                    Brave New World
+                    Competing Against Luck
                   </li>
                 </p>
-                <p>
-                  Recent plays:
+              </td>
+
+              <td>
+              <p>
+                  Games:
+                  <li>
+                    Half Life
+                  </li>
+                  <li>
+                    Undertale
+                  </li>
+                  <li>
+                    Red Dead Redemption 2
+                  </li>
+                  <li>
+                    Doom
+                  </li>
                   <li>
                     Deathloop
                   </li>
@@ -269,8 +265,32 @@ class Main extends React.Component {
                   <li>
                     Age of Empires IV
                   </li>
-                </p>
+              </p>
+              <p>
+                Media
+                <ul>
+                  <li>
+                    Three body problem 
+                  </li>
+                  <li>
+                    Better Call Saul 
+                  </li>
+                  <li>
+                    Attack On Titan
+                  </li>
+                  <li>
+                    Parasite
+                  </li>
+                  <li>
+                    Dwarkesh Patel
+                  </li>
+                  <li>
+                    ...
+                  </li>
+                </ul>
+              </p>
               </td>
+              
             </tr>
           </table>
           </p>
@@ -322,13 +342,13 @@ class Main extends React.Component {
               </a>
             </li>
             <li>
-              <a href="https://instagram.com/husainhz7" className="icon fa-instagram">
+              <a href="https://instagram.com/husainzaidi_" className="icon fa-instagram">
                 <span className="label">Instagram</span>
               </a>
             </li>
             <li>
               <a
-                href="https://github.com/husainhz7"
+                href="https://github.com/husain-zaidi"
                 className="icon fa-github"
               >
                 <span className="label">GitHub</span>
