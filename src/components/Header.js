@@ -7,7 +7,7 @@ const Header = props => (
       <div className="inner">
         <h1>Husain Haider Zaidi</h1>
         <p>
-          Software Engineer @microsoft 
+          Software Engineer 2 @microsoft 
           <br />
           </p>
       </div>

@@ -1,6 +1,6 @@
 ---
 title: "Hugging Face and VLMs"
-date: "2024-07-31"
+date: "1984-07-31"
 ---
 
 ( Write my notes about finetuning using hugging face transformers)
