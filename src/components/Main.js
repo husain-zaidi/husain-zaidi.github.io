@@ -183,14 +183,17 @@ class Main extends React.Component {
            Software Engineer 2 at Microsoft (Microsoft Todo Backend). Processing PBs of User logs using spark for Business metrics. Built REST APIs, messaging systems to enhance shared task lists across distributed instances, using ASP.NET
            </p>
            <p>
-            Am learning about VLMs, contributing to HuggingFace LeRobot. 
-            </p>
-            <p>
+          Am learning about VLMs, contributing to HuggingFace LeRobot. 
+          </p>
+          <p>
           Was a hobbyist Game developer, huge fan of single player experiences. Experienced in Unity3D. 
           Dabbled in Artificial neural networks and Deep Reinforcement Learning. Used Pytorch, Unity ml-agents. 
           </p>
            <p>
           Made Augmented Reality apps using ArCore in Unity. Deeply intereseted in Mixed Reality, bullish on its ability to replace the smartphone.
+          </p>
+          <p>
+            <a href='https://drive.google.com/file/d/1-_AOHUlKklgeKla8eLkOyx1DnsLDg27e/view?usp=drive_link'>Resume PDF</a>
           </p>
           <p>
             Bullish and interested in projects on 
