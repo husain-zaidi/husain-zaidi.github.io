@@ -15,4 +15,8 @@ jobs:
     - name: npm install, build and test
       run: |
         npm install
+        git config --global user.email "hhzcontact@gmail.com"
+        git config --global user.name "Husain"
         npm run deploy
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
