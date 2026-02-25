@@ -19,10 +19,10 @@ const BlogPostTemplate = ({ data, location }) => {
         <html lang="en" />
       </Helmet>
       <article
-        className="active"
+        className="active blog-post"
         itemScope
         itemType="http://schema.org/Article"
-        style={{ margin: `3rem auto`, padding: `10px`, maxWidth: 600 }}
+        style={{ margin: `3rem auto`, padding: `10px` }}
       >
       <a href="/" >Home</a>
         <header>

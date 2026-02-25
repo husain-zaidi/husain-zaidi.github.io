@@ -109,3 +109,23 @@
 			}
 		}
 	}
+
+	// Standalone blog post page width.
+	article.blog-post {
+		width: 48rem;
+		max-width: 92vw;
+	}
+
+	@include breakpoint(small) {
+		article.blog-post {
+			width: 42rem;
+			max-width: 94vw;
+		}
+	}
+
+	@include breakpoint(xsmall) {
+		article.blog-post {
+			width: 100%;
+			max-width: 96vw;
+		}
+	}
