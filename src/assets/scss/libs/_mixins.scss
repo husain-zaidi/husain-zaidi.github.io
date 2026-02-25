@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /// Makes an element's :before pseudoelement a FontAwesome icon.
 /// @param {string} $content Optional content value to use.
 /// @param {string} $where Optional pseudoelement to target (before or after).
@@ -241,43 +243,43 @@
 		// Debug.
 			$debug: false;
 
-			@if (map-has-key($settings, 'debug')) {
-				$debug: map-get($settings, 'debug');
+			@if (map.has-key($settings, 'debug')) {
+				$debug: map.get($settings, 'debug');
 			}
 
 		// Vertical align.
 			$vertical-align: null;
 
-			@if (map-has-key($settings, 'vertical-align')) {
-				$vertical-align: map-get($settings, 'vertical-align');
+			@if (map.has-key($settings, 'vertical-align')) {
+				$vertical-align: map.get($settings, 'vertical-align');
 			}
 
 		// Horizontal align.
 			$horizontal-align: null;
 
-			@if (map-has-key($settings, 'horizontal-align')) {
-				$horizontal-align: map-get($settings, 'horizontal-align');
+			@if (map.has-key($settings, 'horizontal-align')) {
+				$horizontal-align: map.get($settings, 'horizontal-align');
 			}
 
 		// Columns.
 			$columns: null;
 
-			@if (map-has-key($settings, 'columns')) {
-				$columns: map-get($settings, 'columns');
+			@if (map.has-key($settings, 'columns')) {
+				$columns: map.get($settings, 'columns');
 			}
 
 		// Gutters.
 			$gutters: 0;
 
-			@if (map-has-key($settings, 'gutters')) {
-				$gutters: map-get($settings, 'gutters');
+			@if (map.has-key($settings, 'gutters')) {
+				$gutters: map.get($settings, 'gutters');
 			}
 
 		// Flush.
 			$flush: true;
 
-			@if (map-has-key($settings, 'flush')) {
-				$flush: map-get($settings, 'flush');
+			@if (map.has-key($settings, 'flush')) {
+				$flush: map.get($settings, 'flush');
 			}
 
 	// Initialize base grid.
@@ -331,29 +333,29 @@
 		// Columns.
 			$columns: 1;
 
-			@if (map-has-key($settings, 'columns')) {
-				$columns: map-get($settings, 'columns');
+			@if (map.has-key($settings, 'columns')) {
+				$columns: map.get($settings, 'columns');
 			}
 
 		// Gutters.
 			$gutters: 0;
 
-			@if (map-has-key($settings, 'gutters')) {
-				$gutters: map-get($settings, 'gutters');
+			@if (map.has-key($settings, 'gutters')) {
+				$gutters: map.get($settings, 'gutters');
 			}
 
 		// Previous columns.
 			$prev-columns: false;
 
-			@if (map-has-key($settings, 'prev-columns')) {
-				$prev-columns: map-get($settings, 'prev-columns');
+			@if (map.has-key($settings, 'prev-columns')) {
+				$prev-columns: map.get($settings, 'prev-columns');
 			}
 
 		// Flush.
 			$flush: true;
 
-			@if (map-has-key($settings, 'flush')) {
-				$flush: map-get($settings, 'flush');
+			@if (map.has-key($settings, 'flush')) {
+				$flush: map.get($settings, 'flush');
 			}
 
 	// Resize columns.

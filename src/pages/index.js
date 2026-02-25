@@ -107,9 +107,9 @@ class IndexPage extends React.Component {
               setWrapperRef={this.setWrapperRef}
             />
           </div>
+          <Footer timeout={this.state.timeout} />
           <div id="bg"></div>
         </div>
-        <Footer timeout={this.state.timeout} />
       </Layout>
     )
   }

@@ -56,7 +56,6 @@ module.exports = {
             options: {
               maxWidth: 800,
               linkImagesToOriginal: false,
-              sizeByPixelDensity: true,
               showCaptions: true
             }
           },
@@ -65,6 +64,20 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        sassOptions: {
+          silenceDeprecations: [
+            `import`,
+            `global-builtin`,
+            `legacy-js-api`,
+            `color-functions`,
+            `if-function`,
+            `new-global`,
+          ],
+        },
+      },
+    },
   ],
 }
