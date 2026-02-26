@@ -110,6 +110,6 @@ Select Configure the 40 pins header and select the new pin overlay name. Save an
 Enjoy!
 
 edit: upgrade to Jetpack 6.2.2 and jetson-io has support for enabling GPIO for pins inidividually!
-![image](https://private-user-images.githubusercontent.com/5118846/550120125-c23e21a3-1843-4063-b005-1ddca3bff5a5.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIxMTk1ODQsIm5iZiI6MTc3MjExOTI4NCwicGF0aCI6Ii81MTE4ODQ2LzU1MDEyMDEyNS1jMjNlMjFhMy0xODQzLTQwNjMtYjAwNS0xZGRjYTNiZmY1YTUucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDIyNiUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjAyMjZUMTUyMTI0WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9ZDFkMDNiYWJjYmRiNzljZDJhMWI4MWIzZjI0MTI5YmE0M2RhNDlhYjZiMmZhNjlhYzg3YWQ4NjhmNmU1NTg2ZSZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.1GEVlPUgd1enbMnbIlmQvmvlzl21A8qYg4uUlSYNEEM)
+![image](./blogPics/jetsonio.png)
 
 Also check out my ROS MCP! https://www.npmjs.com/package/ros-mcp 

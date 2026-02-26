@@ -180,32 +180,35 @@ class Main extends React.Component {
           </span> */}
           <p>
             <p>
-           Software Engineer 2 at Microsoft (Microsoft Todo Backend). Processing PBs of User logs using spark for Business metrics. Built REST APIs, messaging systems to enhance shared task lists across distributed instances, using ASP.NET
-           </p>
-           <p>
-          Am learning about VLMs, contributing to HuggingFace LeRobot. 
-          </p>
-          <p>
-          Was a hobbyist Game developer, huge fan of single player experiences. Experienced in Unity3D. 
-          Dabbled in Artificial neural networks and Deep Reinforcement Learning. Used Pytorch, Unity ml-agents. 
-          </p>
-           <p>
-          Made Augmented Reality apps using ArCore in Unity. Deeply intereseted in Mixed Reality, bullish on its ability to replace the smartphone.
-          </p>
+            Software Engineer 2 at Microsoft. Working for the Project Manager Agent in Teams. Built LLM orchestration for executing Tasks from Teams.Led the Data Engineering crew for Planner. Improved pipelines that process PBs of User logs using spark for Business metrics. Built REST APIs, messaging systems to enhance shared task lists across distributed instances, using ASP.NET.
+            </p>
+            <p>
+            Building home robotics using ROS, Jetson Nano, and custom PCBs. Trying to SLAM using just stero cameras. 
+            </p>
+            <p>
+            Was a hobbyist Game developer, huge fan of single player experiences. Experienced in Unity3D. 
+            Dabbled in Artificial neural networks and Deep Reinforcement Learning in Unity. Used Pytorch, Unity ml-agents. 
+            </p>
+            <p>
+            Made Augmented Reality apps using ArCore in Unity. Deeply intereseted in Mixed Reality, bullish on its ability to replace the smartphone.
+            </p>
           <p>
             <a href='https://drive.google.com/file/d/1-_AOHUlKklgeKla8eLkOyx1DnsLDg27e/view?usp=drive_link'>Resume PDF</a>
           </p>
           <p>
+            See my desk here in 3D!: <a href='https://marble.worldlabs.ai/world/428e1e87-cb50-4715-b3b9-c096794f90db'>Desk Gaussian splat</a>
+            </p>
+          <p>
             Bullish and interested in projects on 
             <ul>
               <li>
-                Learning based approaches for automation. robotics
+                Learning-based approaches for automation. Robotics for home
+              </li>
+              <li>
+                Shared mirror worlds: A Information rich, virtual simiulation of the world. 3D Gaussian splats and Maps.
               </li>
               <li>
                 Creator Economy, power to the masses!
-              </li>
-              <li>
-                Shared mirror worlds: A Information rich, virtual simiulation of the world
               </li>
               <li>
                 Metaverse interactions, tackling real-time synchronous internet
