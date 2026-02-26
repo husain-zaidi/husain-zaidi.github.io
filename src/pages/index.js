@@ -42,45 +42,21 @@ class IndexPage extends React.Component {
   }
 
   handleOpenArticle(article) {
-
     this.setState({
-      isArticleVisible: !this.state.isArticleVisible,
+      isArticleVisible: true,
+      timeout: true,
+      articleTimeout: true,
       article
     })
-
-    setTimeout(() => {
-      this.setState({
-        timeout: !this.state.timeout
-      })
-    }, 325)
-
-    setTimeout(() => {
-      this.setState({
-        articleTimeout: !this.state.articleTimeout
-      })
-    }, 350)
-
   }
 
   handleCloseArticle() {
-
     this.setState({
-      articleTimeout: !this.state.articleTimeout
+      isArticleVisible: false,
+      timeout: false,
+      articleTimeout: false,
+      article: ''
     })
-
-    setTimeout(() => {
-      this.setState({
-        timeout: !this.state.timeout
-      })
-    }, 325)
-
-    setTimeout(() => {
-      this.setState({
-        isArticleVisible: !this.state.isArticleVisible,
-        article: ''
-      })
-    }, 350)
-
   }
 
   handleClickOutside(event) {
