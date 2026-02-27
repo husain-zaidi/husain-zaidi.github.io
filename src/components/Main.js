@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Link, graphql, StaticQuery } from "gatsby"
+import { withPrefix } from "gatsby"
 
 
 class Main extends React.Component {
   render() {
+    const splatUrl = withPrefix('/splats/gs_PC_gaming.compressed.ply')
+    const viewerUrl = `${withPrefix('/splat-viewer/')}${`?url=${encodeURIComponent(splatUrl)}`}`
     
     let close = (
       <div
@@ -169,7 +172,7 @@ class Main extends React.Component {
 
         <article
           id="about"
-          className={`${this.props.article === 'about' ? 'active' : ''} ${
+          className={`about-article ${this.props.article === 'about' ? 'active' : ''} ${
             this.props.articleTimeout ? 'timeout' : ''
           }`}
           style={{ display: 'none' }}
@@ -178,6 +181,8 @@ class Main extends React.Component {
           {/* <span className="image main">
             <img src={pic03} alt="" />
           </span> */}
+          <div className="about-layout">
+          <div className="about-copy">
           <p>
             <p>
             Software Engineer 2 at Microsoft. Working for the Project Manager Agent in Teams. Built LLM orchestration for executing Tasks from Teams.Led the Data Engineering crew for Planner. Improved pipelines that process PBs of User logs using spark for Business metrics. Built REST APIs, messaging systems to enhance shared task lists across distributed instances, using ASP.NET.
@@ -195,9 +200,6 @@ class Main extends React.Component {
           <p>
             <a href='https://drive.google.com/file/d/1-_AOHUlKklgeKla8eLkOyx1DnsLDg27e/view?usp=drive_link'>Resume PDF</a>
           </p>
-          <p>
-            See my desk here in 3D!: <a href='https://marble.worldlabs.ai/world/428e1e87-cb50-4715-b3b9-c096794f90db'>Desk Gaussian splat</a>
-            </p>
           <p>
             Bullish and interested in projects on 
             <ul>
@@ -300,6 +302,18 @@ class Main extends React.Component {
             </tr>
           </table>
           </p>
+          </div>
+          <aside className="about-splat">
+            <h3>My Current Desk!</h3>
+            <iframe
+              title="PC gaming Gaussian splat"
+              src={viewerUrl}
+              loading="lazy"
+              allow="fullscreen"
+              allowFullScreen
+            />
+          </aside>
+          </div>
           {close}
         </article>
 
