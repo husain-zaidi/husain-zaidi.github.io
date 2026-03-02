@@ -17,6 +17,10 @@ const BlogPostTemplate = ({ data, location }) => {
         ]}
       >
         <html lang="en" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+        <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png" />
+        <link rel="shortcut icon" href="/favicon-48x48.png" />
       </Helmet>
       <article
         className="active blog-post"
