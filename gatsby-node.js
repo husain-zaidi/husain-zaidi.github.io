@@ -5,8 +5,26 @@
  */
 
 // You can delete this file if you're not using it
+const fs = require(`fs`)
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+
+const blogResourcesSource = path.join(__dirname, `content`, `blog`, `resources`)
+const staticResourcesTarget = path.join(__dirname, `static`, `resources`)
+
+const syncBlogResourcesToStatic = () => {
+  if (!fs.existsSync(blogResourcesSource)) {
+    return
+  }
+
+  fs.rmSync(staticResourcesTarget, { recursive: true, force: true })
+  fs.mkdirSync(path.dirname(staticResourcesTarget), { recursive: true })
+  fs.cpSync(blogResourcesSource, staticResourcesTarget, { recursive: true })
+}
+
+exports.onPreBootstrap = () => {
+  syncBlogResourcesToStatic()
+}
 
 // generate pages by slug
 exports.onCreateNode = ({ node, getNode, actions }) => {
