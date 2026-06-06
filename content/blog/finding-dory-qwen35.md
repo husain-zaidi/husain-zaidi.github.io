@@ -11,11 +11,13 @@ For seamless robot-human collaboration, it should know your house and its member
 ### What is finding dory - exactly
 FindingDory evaluates whether a robot can use yesterday’s experience in a house to solve today’s language-specified memory/navigation tasks: during an initial “day-before” phase, an oracle/demo trajectory moves around, picks, places, and observes objects; then the evaluated agent receives a natural-language instruction like navigating back to an object, interaction, time, room etc. from that prior trajectory, selects one or more remembered frame indices as subgoals, and uses a low-level navigation policy (e.g. travel to xyz coordinates) to return there.  
 
-Chunks of the images (e.g. 250 images) are sent to the model with prompt to predict the frame index for the question. Those frame indices are converted to xyz coordinates. Camera RGB is the only sensor going to the VLM effectively. The whole eval runs on pre-built indoor maps in habitat-sim (thanks Meta!) 
+Chunks of the images (e.g. 250 images) are sent to the model with prompt to predict the frame index for the question. Those frame indices are converted to xyz coordinates. Camera RGB is the only sensor going to the VLM effectively. The whole eval runs on pre-built indoor maps in habitat-sim (thanks Meta!) It uses PDDL specifications to convert the frames index (given by the VLM) to the location of the target. The sim helps convert the frame index to timestamp and matches the recorded navigation poses of the bot.
 
 The benchmark scores both high-level recall quality, such as whether the selected frame indices correspond to the right remembered target, and downstream embodied success, such as distance-to-goal, semantic visibility/coverage, SPL, subgoal count, and failure modes like misidentification, wrong number of targets, response errors, or low-level navigation failure.
 
-FindingDory effectively evaluates in-context memories of VLMs for indoor household tasks in the habitat sim. It uses PDDL specifications to convert the frames index (given by the VLM) to the location of the target.
+FindingDory effectively evaluates in-context memories of VLMs for indoor household tasks in the habitat sim. So there is no extra memory storage like a DB. Its all on the poor model to figure out what is where
+
+"go to tape" + 250 frames -> model -> "tape is at frame 3 of the video" -> sim converts the frame-index/timestamp to target of navigation
 
 ```
 Qwen prompt:
