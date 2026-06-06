@@ -65,6 +65,7 @@ Output format:
   "other_objects_in_scene": list[str]
 }
 </code></pre>
+<p><a href="https://github.com/husain-zaidi/findingdory-habitat/blob/python310-qwen35-native/findingdory/policies/heuristic/text_mapper.py">https://github.com/husain-zaidi/findingdory-habitat/blob/python310-qwen35-native/findingdory/policies/heuristic/text_mapper.py</a></p>
 <p>Once the task is given, the list of histories with it's corresponding frame indices are sent to the model for prediction</p>
 <pre><code>You are given a structured text history of a robot's past experience in a house.
 Each history entry summarizes a short frame window and includes the original frame range.
@@ -96,7 +97,7 @@ The goal is {goal}
 </table>
 <h3>Qwen 3.5 + python 3.10 update</h3>
 <p>The evaluation repository was built on python 3.9 to support habitat sim. This limited the models it could be tested on as Qwen 3.5 and later needed python 3.10. Me and codex took up the task to upgrade everything to python 3.10 so that newer models can be evaluated.</p>
-<p>Initially, I had created a proxy where LLM calls would go to a python3.10 environment where qwen3.5 lived. After running the evals, I ported the entire codebase to python3.10. This required upgrading numpy, and having some utils written for habitat sim so that it doesn't depend on pytorch 3D. Please do try:</p>
+<p>Initially, I had created a proxy where LLM calls would go to a python3.10 environment where qwen3.5 lived. After running the evals, I ported the entire codebase to python3.10. This required upgrading numpy, and having some utils written for habitat sim so that it doesn't depend on pytorch 3D. Please do try: <a href="https://github.com/husain-zaidi/findingdory-habitat/tree/python310-qwen35-native">https://github.com/husain-zaidi/findingdory-habitat/tree/python310-qwen35-native</a></p>
 <p>I tested using the Qwen3.5-4B model and behold:</p>
 <table>
 <thead>
