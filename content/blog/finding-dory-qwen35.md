@@ -55,6 +55,7 @@ Output format:
   "other_objects_in_scene": list[str]
 }
 ``` 
+https://github.com/husain-zaidi/findingdory-habitat/blob/python310-qwen35-native/findingdory/policies/heuristic/text_mapper.py 
 
 Once the task is given, the list of histories with it's corresponding frame indices are sent to the model for prediction
 
@@ -80,7 +81,7 @@ Because of the chunking it gets harder for the model to give the accurate frame 
 
 The evaluation repository was built on python 3.9 to support habitat sim. This limited the models it could be tested on as Qwen 3.5 and later needed python 3.10. Me and codex took up the task to upgrade everything to python 3.10 so that newer models can be evaluated.
 
-Initially, I had created a proxy where LLM calls would go to a python3.10 environment where qwen3.5 lived. After running the evals, I ported the entire codebase to python3.10. This required upgrading numpy, and having some utils written for habitat sim so that it doesn't depend on pytorch 3D. Please do try: 
+Initially, I had created a proxy where LLM calls would go to a python3.10 environment where qwen3.5 lived. After running the evals, I ported the entire codebase to python3.10. This required upgrading numpy, and having some utils written for habitat sim so that it doesn't depend on pytorch 3D. Please do try: https://github.com/husain-zaidi/findingdory-habitat/tree/python310-qwen35-native 
 
 I tested using the Qwen3.5-4B model and behold: 
 
