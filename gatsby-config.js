@@ -51,6 +51,7 @@ module.exports = {
         plugins: [
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-relative-images`,
+          `gatsby-remark-mermaid`,
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {

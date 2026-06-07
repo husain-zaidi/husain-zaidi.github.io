@@ -1,15 +1,19 @@
 ---
-title: "Robot memory, finding dory"
+title: "Evaluating Qwen 3.5 on FindingDory: A Robotic Memory Benchmark"
 date: "2026-06-06"
+description: "Most robotics benchmarks test task completion. FindingDory tests whether it can remember yesterday. I ported the benchmark to Python 3.10 and benchmarked Qwen 3.5's ability to retrieve memories from past trajectories and navigate to recalled locations."
+keywords: "findingdory, qwen, robotics, vlm, memory"
 ---
 
 The current robotics landscape is chasing the promised VLM Valhalla. Vision Language Models fine-tuned with hours of human-controlled robot demonstrations is the dominant paradigm for attempting robotic general intelligence. While most VLM evals are focused on measuring individual task success, there are very few and often ignored evals that test memory. This is essential for long-horizon tasks and for human-robot interactions as wouldn't it be a pain to give detailed descriptions of tasks every time. The robot should remember what it had done earlier and revisit the locations described as humans would do to any household member. 
 
-Through my research, I discovered [finding-dory](https://findingdory-benchmark.github.io/) to be a really good eval that measures the recall of VLM's in-context and through the habitat-sim indoor simulator the task success rate is measured. Tasks like "Pick up the tape you saw yesterday" are tested. In this post, I ran the evaluations on newer VLMs like Qwen 3.6 and implemented a text-agent as described in the original paper
+Through my research, I discovered [finding-dory](https://findingdory-benchmark.github.io/) to be a really good eval that measures the recall of VLM's in-context and through the habitat-sim indoor simulator the task success rate is measured. Tasks like "Pick up the tape you saw yesterday" are tested. In this post, I ran the evaluations on newer VLMs like Qwen 3.6 and implemented a text-agent as described in the original paper. I ported the codebase to Python 3.10, and got a 2.5× improvement using latest models.
+
 ### Why robotic memory is important
 For seamless robot-human collaboration, it should know your house and its members as well as any human would do. Like you would ask a family member to "get the milk for me" or "Where's my keys", they would immediately know where the item is and where to bring it to. In addition to items, and places of interest, the bot should know who the members of the household are and which item is related to whom. They should know the routines of the house, each member's preference and how they talk. This memory layer paired with VLM's in-context understanding will lead the bot to seamlessly complete tasks.
-### What is finding dory - exactly
-FindingDory evaluates whether a robot can use yesterday’s experience in a house to solve today’s language-specified memory/navigation tasks: during an initial “day-before” phase, an oracle/demo trajectory moves around, picks, places, and observes objects; then the evaluated agent receives a natural-language instruction like navigating back to an object, interaction, time, room etc. from that prior trajectory, selects one or more remembered frame indices as subgoals, and uses a low-level navigation policy (e.g. travel to xyz coordinates) to return there.  
+
+### What is finding-dory - exactly
+Finding-Dory evaluates whether a robot can use yesterday’s experience in a house to solve today’s language-specified memory/navigation tasks: during an initial “day-before” phase, an oracle/demo trajectory moves around, picks, places, and observes objects; then the evaluated agent receives a natural-language instruction like navigating back to an object, interaction, time, room etc. from that prior trajectory, selects one or more remembered frame indices as subgoals, and uses a low-level navigation policy (e.g. travel to xyz coordinates) to return there.  
 
 Chunks of the images (e.g. 250 images) are sent to the model with prompt to predict the frame index for the question. Those frame indices are converted to xyz coordinates. Camera RGB is the only sensor going to the VLM effectively. The whole eval runs on pre-built indoor maps in habitat-sim (thanks Meta!) It uses PDDL specifications to convert the frames index (given by the VLM) to the location of the target. The sim helps convert the frame index to timestamp and matches the recorded navigation poses of the bot.
 
@@ -17,7 +21,26 @@ The benchmark scores both high-level recall quality, such as whether the selecte
 
 FindingDory effectively evaluates in-context memories of VLMs for indoor household tasks in the habitat sim. So there is no extra memory storage like a DB. Its all on the poor model to figure out what is where
 
-"go to tape" + 250 frames -> model -> "tape is at frame 3 of the video" -> sim converts the frame-index/timestamp to target of navigation
+```mermaid
+flowchart LR
+
+    A[Yesterday's Episode<br/>Agent explores environment] --> B[250 RGB Frames + Metadata]
+
+    B --> D[VLM]
+
+    D --> E[Predicted Frame IDs]
+
+    E --> F[Frame → Pose Conversion]
+
+    F --> G[Habitat Simulator Navigation]
+
+    G --> I{Correct Goal?}
+
+    I -->|Yes| J[Task Success]
+    I -->|No| K[Task Failure]
+
+    style D fill:#e1f5fe
+```
 
 ```
 Qwen prompt:
@@ -41,6 +64,7 @@ I cloned the eval repository and tried to run for Qwen2.5 3B for 1 episode (52 t
 | 7.7%              | 9.6%                           |
 
 The model struggled to correctly predict the number of subgoals. For e.g. "Revisit all the receptacles you interacted with yesterday." should yield 2 positions but the model often predicts 3 or 1.  
+
 ### Resurrecting the text agent
 The paper also tested a text-based summarization agent. In this, the model would see chunks of images and give a summary of what it observes. This would be given in a json containing objects, room, manipulations etc. 
 ```
@@ -77,11 +101,12 @@ This model showed improvement as the summarization helped break down the task
 | Task SR | High Level Goal SR |
 | ------- | ------------------ |
 | 9.6%    | 13.5%              |
+
 Because of the chunking it gets harder for the model to give the accurate frame numbers. It would often give 3 indices where 1 was required.
 
 ### Qwen 3.5 + python 3.10 update
 
-The evaluation repository was built on python 3.9 to support habitat sim. This limited the models it could be tested on as Qwen 3.5 and later needed python 3.10. Me and codex took up the task to upgrade everything to python 3.10 so that newer models can be evaluated.
+The evaluation repository was built on python 3.9 to support habitat sim. This limited the models it could be tested on as Qwen 3.5 and later needed python 3.10. I and Codex took up the task to upgrade everything to python 3.10 so that newer models can be evaluated.
 
 Initially, I had created a proxy where LLM calls would go to a python3.10 environment where qwen3.5 lived. After running the evals, I ported the entire codebase to python3.10. This required upgrading numpy, and having some utils written for habitat sim so that it doesn't depend on pytorch 3D. Please do try: https://github.com/husain-zaidi/findingdory-habitat/tree/python310-qwen35-native 
 
@@ -91,10 +116,13 @@ I tested using the Qwen3.5-4B model and behold:
 | ------- | ------------------ |
 | 19.2%   | 21.2%              |
 
-A strong model but there is sill lots of room for improvement. It doesn't output incorrect number of goals and finds the correct locations.
+A strong model but there is still lots of room for improvement. It doesn't output incorrect number of goals and finds the correct locations.
 
 Here is a report for the episode which shows which task it was able to complete in video.
 
 <iframe src="/resources/finding_dory_report/findingdory_metrics_view.html" width="100%" height="600" title="FindingDory metrics report" frameBorder="0" allowFullScreen></iframe>
 
-I will build better harnesses for memory and will try to evaluate more newer models. Memory has to be solved and finding dory looks like a good hill to climb to build emodied robotics memory.
+
+I will try to evaluate more newer models, the Nvidia cosmo ones seem promising. Memory has to be solved and finding-dory looks like a good hill to climb to build embodied robotics memory. 
+
+An excellent question: What would a harness memory system that a VLM could query into look like and how far can we extend the robots capabilities using such harness.

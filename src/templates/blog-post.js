@@ -12,8 +12,8 @@ const BlogPostTemplate = ({ data, location }) => {
      <Helmet
         title={siteTitle}
         meta={[
-          { name: 'description', content: 'Blog' },
-          { name: 'keywords', content: 'sample, something' },
+          { name: 'description', content: post.frontmatter.description || post.excerpt },
+          { name: 'keywords', content: post.frontmatter.keywords || 'husain, robotics, gaming' },
         ]}
       >
         <html lang="en" />
@@ -64,6 +64,8 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        description
+        keywords
       }
     }
   }
