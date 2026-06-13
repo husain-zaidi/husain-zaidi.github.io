@@ -2,13 +2,14 @@ import * as React from "react"
 import Helmet from 'react-helmet'
 import { graphql } from "gatsby"
 import '../assets/scss/main.scss'
+import Layout from '../components/layout'
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Blog`
 
   return (
-    <>
+    <Layout location={location}>
      <Helmet
         title={siteTitle}
         meta={[
@@ -41,7 +42,7 @@ const BlogPostTemplate = ({ data, location }) => {
         <footer>
         </footer>
       </article>
-    </>
+    </Layout>
     
   )
 }
