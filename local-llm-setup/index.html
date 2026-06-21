@@ -16,6 +16,7 @@
 <p>Outside of work, AI subscriptions can be a bit expensive and waiting for API rate limits is a special kind of torture. So, I setted up something better: a local coding agent that actually works fast, respects my wallet, and never judges my code quality. And I am shocked as to how well it just works.</p>
 <h2>The Model: Qwen 3.6 35B @ 2-bit</h2>
 <p>The star of the show is <strong>Qwen 3.6 35B A3B MTP</strong> running through <a href="https://github.com/unslothai/unsloth">Unsloth studio</a>. I grab the <a href="https://huggingface.co/unsloth/Qwen3.6-35B-A3B-MTP-GGUF">UD-IQ2_XXS 2-bit GGUF quant</a> from Hugging Face and run it with a 128K context window. The 2-bit quantization is what makes this possible on consumer hardware — it shaves the model down to a manageable size without sacrificing the intelligence you actually need.</p>
+<p>The model is roughly equivalent to Claude Sonnet 4.5 (<a href="https://llm-stats.com/models/compare/claude-sonnet-4-5-20250929-vs-qwen3.6-35b-a3b">https://llm-stats.com/models/compare/claude-sonnet-4-5-20250929-vs-qwen3.6-35b-a3b</a>). I trust it alot to implement code, understand and come up with good next steps. I will pair this with planning from a bigger model soon.</p>
 <p>Here's the command I use to spin it up:</p>
 <pre><code class="language-bash">unsloth run --model unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-IQ2_XXS --disable-tools -c 128000
 </code></pre>
