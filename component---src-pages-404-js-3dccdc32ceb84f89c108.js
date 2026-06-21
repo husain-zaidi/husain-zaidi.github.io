@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_dimension_v2=self.webpackChunkgatsby_starter_dimension_v2||[]).push([[125],{3331:function(e,t,s){s.r(t);var n=s(6540),a=s(3895);t.default=()=>n.createElement(a.A,null,n.createElement("h1",null,"NOT FOUND"),n.createElement("p",null,"You just hit a route that doesn't exist... the sadness."))}}]);
+//# sourceMappingURL=component---src-pages-404-js-3dccdc32ceb84f89c108.js.map
