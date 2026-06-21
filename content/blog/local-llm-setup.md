@@ -13,6 +13,8 @@ Outside of work, AI subscriptions can be a bit expensive and waiting for API rat
 
 The star of the show is **Qwen 3.6 35B A3B MTP** running through [Unsloth studio](https://github.com/unslothai/unsloth). I grab the [UD-IQ2_XXS 2-bit GGUF quant](https://huggingface.co/unsloth/Qwen3.6-35B-A3B-MTP-GGUF) from Hugging Face and run it with a 128K context window. The 2-bit quantization is what makes this possible on consumer hardware — it shaves the model down to a manageable size without sacrificing the intelligence you actually need.
 
+The model is roughly equivalent to Claude Sonnet 4.5 (https://llm-stats.com/models/compare/claude-sonnet-4-5-20250929-vs-qwen3.6-35b-a3b). I trust it alot to implement code, understand and come up with good next steps. I will pair this with planning from a bigger model soon.
+
 Here's the command I use to spin it up:
 
 ```bash
