@@ -25,8 +25,8 @@
 </code></pre>
 <p>That's it. No cloud dependency, no API keys, no rate limits. Just my machine doing the heavy lifting.</p>
 <p><strong>All I did was add UnSloth as a provider in <code>pi</code>'s <code>models.json</code></strong>. That's it. I disable unsloth's tools so that I can focus on pi's tools and there is no ambiguity in tool calls</p>
-<h2>Speed: 100 tok/s on an RTX 5060 Ti 16GB</h2>
-<p>And it flies. My NVIDIA RTX 5060 Ti with 16GB VRAM pushes out <strong>~100 tokens per second</strong> with this setup. That's blazing fast for a 35B model — it feels almost real-time.</p>
+<h2>Speed: 50 tok/s on an RTX 5060 Ti 16GB</h2>
+<p>And it flies. My NVIDIA RTX 5060 Ti with 16GB VRAM pushes out <strong>~50 tokens per second</strong> with this setup. That's blazing fast for a 35B model — it feels almost real-time.</p>
 <p>The pi harness picks up the running UnSloth instance and turns it into a full coding agent — file reading, bash execution, editing, writing — all local, all fast.</p>
 <h2>Tailscale: Code from the Mall</h2>
 <p>Here's where it gets fun — I don't have to sit at my desk to use it. I've set up <a href="https://tailscale.com/">Tailscale</a> so I can SSH into my machine from anywhere.</p>
