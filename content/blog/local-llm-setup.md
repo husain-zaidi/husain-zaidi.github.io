@@ -31,9 +31,9 @@ That's it. No cloud dependency, no API keys, no rate limits. Just my machine doi
 
 **All I did was add UnSloth as a provider in `pi`'s `models.json`**. That's it. I disable unsloth's tools so that I can focus on pi's tools and there is no ambiguity in tool calls
 
-## Speed: 100 tok/s on an RTX 5060 Ti 16GB
+## Speed: 50 tok/s on an RTX 5060 Ti 16GB
 
-And it flies. My NVIDIA RTX 5060 Ti with 16GB VRAM pushes out **~100 tokens per second** with this setup. That's blazing fast for a 35B model — it feels almost real-time. 
+And it flies. My NVIDIA RTX 5060 Ti with 16GB VRAM pushes out **~50 tokens per second** with this setup. That's blazing fast for a 35B model — it feels almost real-time. 
 
 The pi harness picks up the running UnSloth instance and turns it into a full coding agent — file reading, bash execution, editing, writing — all local, all fast.
 
