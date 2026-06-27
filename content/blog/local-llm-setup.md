@@ -5,8 +5,6 @@ description: "Qwen 3.6 35B A3B MTP + pi + tailscale has freed me from agent subs
 keywords: "local llm, qwen, agents, pi, proton"
 ---
 
-# Builder's Desk: My local LLM Developer setup
-
 Outside of work, AI subscriptions can be a bit expensive and waiting for API rate limits is a special kind of torture. So, I setted up something better: a local coding agent that actually works fast, respects my wallet, and never judges my code quality. And I am shocked as to how well it just works.
 
 ## The Model: Qwen 3.6 35B @ 2-bit
