@@ -9,6 +9,8 @@ The current robotics landscape is chasing the promised VLM Valhalla. Vision Lang
 
 Through my research, I discovered [finding-dory](https://findingdory-benchmark.github.io/) to be a really good eval that measures the recall of VLM's in-context and through the habitat-sim indoor simulator the task success rate is measured. Tasks like "Pick up the tape you saw yesterday" are tested. In this post, I ran the evaluations on newer VLMs like Qwen 3.6 and implemented a text-agent as described in the original paper. I ported the codebase to Python 3.10, and got a 2.5× improvement using latest models.
 
+![Demonstation video](/resources/finding_dory_report/videos/1/trajectory.mp4)
+
 ### Why robotic memory is important
 For seamless robot-human collaboration, it should know your house and its members as well as any human would do. Like you would ask a family member to "get the milk for me" or "Where's my keys", they would immediately know where the item is and where to bring it to. In addition to items, and places of interest, the bot should know who the members of the household are and which item is related to whom. They should know the routines of the house, each member's preference and how they talk. This memory layer paired with VLM's in-context understanding will lead the bot to seamlessly complete tasks.
 
@@ -120,7 +122,7 @@ A strong model but there is still lots of room for improvement. It doesn't outpu
 
 Here is a report for the episode which shows which task it was able to complete in video.
 
-<iframe src="/resources/finding_dory_report/findingdory_metrics_view.html" width="100%" height="600" title="FindingDory metrics report" frameBorder="0" allowFullScreen></iframe>
+<iframe src="/resources/finding_dory_report/findingdory_metrics_view.html" width="100%" height="600" title="FindingDory metrics report" frameBorder="0" allowFullScreen loading="lazy"></iframe>
 
 
 I will try to evaluate more newer models, the Nvidia cosmo ones seem promising. Memory has to be solved and finding-dory looks like a good hill to climb to build embodied robotics memory. 
