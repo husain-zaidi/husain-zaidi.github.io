@@ -169,6 +169,17 @@ article.blog-post {
 		}
 	}
 
+	// Mermaid diagrams: full-width, centered
+	article.blog-post {
+		p > svg {
+			max-width: 100vw;
+			width: 100vw;
+			overflow-x: visible;
+			margin-left: calc(50% - 50vw);
+			margin-right: calc(50% - 50vw);
+		}
+	}
+
 	@include breakpoint(medium) {
 		.about-layout {
 			grid-template-columns: 1fr;

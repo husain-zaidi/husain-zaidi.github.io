@@ -26,7 +26,7 @@
 		letter-spacing: _font(letter-spacing);
 		line-height: _size(element-height);
 		outline: 0;
-		padding: 0 1.25rem 0 (1.25rem + (_font(letter-spacing) * 0.5));
+		padding: 0 1.25rem 0 (1.25rem);
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;

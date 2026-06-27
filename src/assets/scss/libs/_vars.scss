@@ -22,12 +22,14 @@
 // Font.
 	$font: (
 		// family:						('Source Sans Pro', sans-serif),
-		family:      				('Play', sans-serif),
+		family:      				('Noto Sans', sans-serif),
 		family-fixed:				('Courier New', monospace),
-		weight:						300,
-		weight-bold:				600,
-		letter-spacing:				0.2rem,
-		letter-spacing-heading:		0.2rem
+		weight:						400,
+		weight-bold:				700,
+		font-optical-sizing: 		auto,
+  		font-style: 				normal,
+		letter-spacing:				normal,
+		letter-spacing-heading:		normal
 	);
 
 // Palette.
