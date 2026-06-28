@@ -115,6 +115,13 @@ article.blog-post {
 	width: 48rem;
 	max-width: 92vw;
 
+	video {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+
 	iframe {
 		display: block;
 		width: 100%;
