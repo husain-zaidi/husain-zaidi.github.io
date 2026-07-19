@@ -5,9 +5,9 @@ description: "Most robotics benchmarks test task completion. FindingDory tests w
 keywords: "findingdory, qwen, robotics, vlm, memory"
 ---
 
-The current robotics landscape is chasing the promised VLM Valhalla. Vision Language Models fine-tuned with hours of human-controlled robot demonstrations is the dominant paradigm for attempting robotic general intelligence. While most VLM evals are focused on measuring individual task success, there are very few and often ignored evals that test memory. This is essential for long-horizon tasks and for human-robot interactions as it would be a pain to give detailed descriptions of tasks every time. The robot should remember what it had done earlier and revisit the locations described as humans would do to any household member. 
+The current robotics landscape is chasing the promised VLM Valhalla. Vision Language Models fine-tuned with hours of human-controlled robot demonstrations is the dominant paradigm for attempting robotic general intelligence. While most VLM evals are focused on measuring individual task success, there are very few and often ignored evals that test memory. This is essential for long-horizon tasks and for human-robot interactions as it would be a pain to give detailed descriptions of tasks every time. The robot should remember what it had done earlier and revisit the locations described as humans would. 
 
-Through my research, I discovered [finding-dory](https://findingdory-benchmark.github.io/) to be a really good eval that measures the recall of VLM's in-context and through the habitat-sim indoor simulator the task success rate is measured. Tasks like "Pick up the tape you saw yesterday" are tested. In this post, I ran the evaluations on newer VLMs like Qwen 3.6 and implemented a text-agent as described in the original paper. I ported the codebase to Python 3.10, and got a 2.5× improvement using latest models.
+Through my research, I discovered [finding-dory](https://findingdory-benchmark.github.io/) to be a really good eval that measures the recall of VLM's in-context and through the habitat-sim indoor simulator the task success rate is measured. Tasks like "Pick up the tape you saw yesterday" are tested. In this post, I ran the evaluations on newer VLMs like Qwen 3.6 and implemented a text-agent as described in the original paper. I ported the codebase to Python 3.10, and got a 2.5× improvement using latest models.78/
 
 <video controls preload="metadata" src="/resources/finding_dory_report/videos/1/trajectory.mp4" title="Demonstration video"></video>
 
@@ -68,7 +68,8 @@ I cloned the eval repository and tried to run for Qwen2.5 3B for 1 episode (52 t
 The model struggled to correctly predict the number of subgoals. For e.g. "Revisit all the receptacles you interacted with yesterday." should yield 2 positions but the model often predicts 3 or 1.  
 
 ### Resurrecting the text agent
-The paper also tested a text-based summarization agent. In this, the model would see chunks of images and give a summary of what it observes. This would be given in a json containing objects, room, manipulations etc. 
+The paper also tested a text-based summarization agent. In this, the model would see chunks of images and give a summary of what it observes. This would be given in a json containing objects, room, manipulations etc. The published github branch did not have this agent implemented, so I went ahead and built it.
+
 ```
 You are given {chunk size} images from one short time window of a robot's past experience in a house.
 Summarize the whole window in one compact JSON object.
@@ -128,3 +129,18 @@ Here is a report for the episode which shows which task it was able to complete 
 I will try to evaluate more newer models, the Nvidia cosmo ones seem promising. Memory has to be solved and finding-dory looks like a good hill to climb to build embodied robotics memory. 
 
 An excellent question: What would a harness memory system that a VLM could query into look like and how far can we extend the robots capabilities using such harness.
+
+### Cite this blog
+
+Zaidi, H. (2026, June 6). *Evaluating Qwen 3.5 on FindingDory: A Robotic Memory Benchmark*. HHZ Blog. https://husain-zaidi.github.io/finding-dory-qwen35/
+
+```bibtex
+@misc{zaidi2026qwen35findingdory,
+  author = {Husain Zaidi},
+  title = {Evaluating Qwen 3.5 on FindingDory: A Robotic Memory Benchmark},
+  year = {2026},
+  month = jun,
+  publisher = {HHZ Blog},
+  url = {https://husain-zaidi.github.io/finding-dory-qwen35/}
+}
+```

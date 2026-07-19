@@ -115,6 +115,34 @@ article.blog-post {
 	width: 48rem;
 	max-width: 92vw;
 
+	// Metric tables in blog posts use a compact grid so their values are easy
+	// to scan without taking the full article width.
+	table {
+		width: auto;
+		max-width: 100%;
+		margin: 1.25rem 0;
+		border: solid _size(border-width) _palette(border);
+	}
+
+	th,
+	td {
+		padding: 0.35em 0.55em;
+		border: solid _size(border-width) _palette(border);
+	}
+
+	th {
+		padding-bottom: 0.35em;
+	}
+
+	thead,
+	tfoot {
+		border: 0;
+	}
+
+	tbody tr {
+		border: 0;
+	}
+
 	video {
 		display: block;
 		width: 100%;

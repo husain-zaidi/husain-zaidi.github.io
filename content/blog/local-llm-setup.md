@@ -29,6 +29,28 @@ That's it. No cloud dependency, no API keys, no rate limits. Just my machine doi
 
 **All I did was add Unsloth as a provider in `pi`'s `models.json`**. That's it. I disable unsloth's tools so that I can focus on pi's tools and there is no ambiguity in tool calls
 
+```json
+{
+  "providers": {
+    "unsloth": {
+      "baseUrl": "http://127.0.0.1:8888/v1",
+      "api": "openai-completions",
+      "apiKey": "<unsloth api key>",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false,
+        "thinkingFormat": "qwen-chat-template"
+      },
+      "models": [
+        { 
+          "id": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-IQ2_XXS"
+        },
+      ]
+    }
+  }
+}
+```
+
 ## Speed: 50 tok/s on an RTX 5060 Ti 16GB
 
 And it flies. My NVIDIA RTX 5060 Ti with 16GB VRAM pushes out **~50 tokens per second** with this setup. That's blazing fast for a 35B model — it feels almost real-time. 
