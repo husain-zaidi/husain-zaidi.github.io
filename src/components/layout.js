@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import '../assets/scss/main.scss'
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children, location, pageClassName = '' }) => {
 
   let content;
 
@@ -17,7 +17,7 @@ const Layout = ({ children, location }) => {
     )
   } else {
     content = (
-      <div id="wrapper" className="page">
+      <div id="wrapper" className={`page ${pageClassName}`.trim()}>
         <div>
           {children}
         </div>
@@ -60,6 +60,7 @@ const Layout = ({ children, location }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  pageClassName: PropTypes.string,
 }
 
 export default Layout

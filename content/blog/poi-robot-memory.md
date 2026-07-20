@@ -1,13 +1,13 @@
 ---
 title: "POIMemory: A Robotic Memory Harness"
 date: "2026-07-19"
-description: "A SOTA embodied robotic memory harness that stores and retrieves Places of interests for navigation"
+description: "A SOTA embodied robotic memory harness that stores and retrieves Places of Interest for navigation"
 keywords: "findingdory, qwen, robotics, vlm, memory. harness"
 ---
 
 In the previous blog, I had explored finding-dory, a robotic eval that tested the in-context recall memory of Vision-Language models. Real-world robots will experience larger multiples of this context throughout operation. To effectively remember the places of interest, a system of record is required. 
 
-I have built this memory layer , named POIMemory, which boosts the performance on finding-dory to be near SOTA (beaten only by SFT). Memories objects are generated which contains the frame, timestamp, objects, etc and through a series of ranking steps the correct memory is retrieved according to the user instruction.
+I have built this memory layer , named POIMemory, which boosts the performance on finding-dory to be near SOTA (beaten only by SFT on the dataset). Memories objects are generated which contains the frame, timestamp, objects, etc and through a series of ranking steps the correct memory is retrieved according to the user instruction.
 
 ![](./blogPics/all_tasks_hl_goal_success_by_model.svg)
 
@@ -32,16 +32,38 @@ flowchart TB
 ```
   
 
-  - While exploring, the agent saves a compact record for every robot-visible frame.
-  - Each record includes visual appearance, visible object/receptacle categories, time-of-day, and a simple interaction-event label.
-  - On a new goal, it looks for useful hints such as the requested object, a time cue like “morning,” or actions like “pick” and “place.”
-	  - Based on the time queue, only frames from the relevant time periods are selected as the starting pool. e.g. morning, early, late etc.
-  - It filters the stored frames, then scores them by visual similarity, category match, temporal relevance, and interaction context. An embedding score is also calculated from the similarity of the query embedding and the stored-frame embedding using SigLip 2
-	  - For example: manipulation events get +0.25 if the goal had that interaction mentioned. 
-  - It keeps a diverse set of high-scoring candidates rather than many nearly identical frames.
-	  - A rarity boost is given based on object categories. Common categories such as `chair` or `table` receive only a small bonus. This ensures that noisy frames do not dominate the candidate sets.
-  - Qwen sees only these candidate images and their metadata, then selects the frame indices most likely to satisfy the goal.
-  - The system deliberately avoids oracle labels, PDDL goals, and global simulator state during retrieval.
+- While exploring, the agent saves a compact record for every robot-visible frame.
+- Each record includes visual appearance, visible object/receptacle categories, time-of-day, and a simple interaction-event label.
+
+POIRecord
+```json
+{
+  "frame_index": 123,
+  "time_of_day": "morning",
+  "rgb_embedding": [0.0123, -0.0456, 0.0789],
+  "entity_categories": [
+    "chair",
+    "table",
+    "sofa"
+  ]
+}
+```
+EventRecord
+```json
+{
+  "frame_index": 123,
+  "manipulation_mode": false,
+  "event_type": "navigation",
+}
+```
+- On a new goal, it looks for useful hints such as the requested object, a time cue like “morning,” or actions like “pick” and “place.”
+  - Based on the time queue, only frames from the relevant time periods are selected as the starting pool. e.g. morning, early, late etc.
+- It filters the stored frames, then scores them by visual similarity, category match, temporal relevance, and interaction context. An embedding score is also calculated from the similarity of the query embedding and the stored-frame embedding using SigLip 2
+  - For example: manipulation events get +0.25 if the goal had that interaction mentioned. 
+- It keeps a diverse set of high-scoring candidates rather than many nearly identical frames.
+  - A rarity boost is given based on object categories. Common categories such as `chair` or `table` receive only a small bonus. This ensures that noisy frames do not dominate the candidate sets.
+- Qwen sees only these candidate images and their metadata, then selects the frame indices most likely to satisfy the goal.
+- The system deliberately avoids oracle labels, PDDL goals, and global simulator state during retrieval.
 
 The best evaluation run was tested using Qwen 3 VL 8B Instruct.
 

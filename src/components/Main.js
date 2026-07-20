@@ -10,12 +10,14 @@ class Main extends React.Component {
     const viewerUrl = `${withPrefix('/splat-viewer/')}${`?url=${encodeURIComponent(splatUrl)}`}`
     
     let close = (
-      <div
+      <button
+        type="button"
         className="close"
+        aria-label="Close panel"
         onClick={() => {
           this.props.onCloseArticle()
         }}
-      ></div>
+      ></button>
     )
 
     return (
@@ -27,12 +29,13 @@ class Main extends React.Component {
             title
           }
         }
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+        allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
           nodes {
             excerpt
             frontmatter {
               date(formatString: "MMMM DD, YYYY")
               title
+              description
             }
             fields {
               slug
@@ -43,55 +46,57 @@ class Main extends React.Component {
       }
     `}
     render={data => (
+      <React.Fragment>
+      <section
+        className="home-journal"
+        aria-labelledby="journal-title"
+        style={this.props.timeout ? { display: 'none' } : {}}
+      >
+        <header className="journal-heading">
+          <div>
+            {/* <span className="section-index">01 / FIELD NOTES</span> */}
+            <h2 id="journal-title">Latest writing</h2>
+          </div>
+          <p>Notes on AI, robotics, engineering, and the things worth building.</p>
+        </header>
+        <ol className="journal-list">
+          {
+            data.allMarkdownRemark.nodes.map((post, index) => {
+              const title = post.frontmatter.title || post.fields.slug
+
+              return (
+                <li key={post.id}>
+                  <Link
+                    to={post.fields.slug}
+                    itemScope
+                    itemType="http://schema.org/Article"
+                    className="journal-entry"
+                  >
+                    <span className="entry-number" aria-hidden="true">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="entry-copy">
+                      <span className="entry-meta">{post.frontmatter.date}</span>
+                      <span className="entry-title" itemProp="headline">{title}</span>
+                      <span
+                        className="entry-excerpt"
+                        dangerouslySetInnerHTML={{ __html: post.frontmatter.description || post.excerpt }}
+                        itemProp="description"
+                      />
+                    </span>
+                    <span className="entry-arrow" aria-hidden="true">&#8599;</span>
+                  </Link>
+                </li>
+              )
+            })
+          }
+        </ol>
+      </section>
       <div
         ref={this.props.setWrapperRef}
         id="main"
         style={this.props.timeout ? { display: 'flex' } : { display: 'none' }}
       >
-        <article
-          id="intro"
-          className={`${this.props.article === 'intro' ? 'active' : ''} ${
-            this.props.articleTimeout ? 'timeout' : ''
-          }`}
-          style={{ display: 'none' }}
-        >
-          <h2 className="major">Blog</h2>
-          <ol style={{ listStyle: `none` }}>
-            {
-              data.allMarkdownRemark.nodes.map(post => {
-                const title = post.frontmatter.title || post.fields.slug
-
-                return (
-                  <li key={post.id}>
-                    <div
-                      itemScope
-                      itemType="http://schema.org/Article"
-                    >
-                      <div>
-                        <h2>
-                          <Link to={post.fields.slug} itemProp="url">
-                            <span itemProp="headline">{title}</span>
-                          </Link>
-                        </h2>
-                        <small>{post.frontmatter.date}</small>
-                      </div>
-                      <section>
-                        <p
-                          dangerouslySetInnerHTML={{
-                            __html: post.excerpt,
-                          }}
-                          itemProp="description"
-                        />
-                      </section>
-                    </div>
-                  </li>
-                )
-              })
-            }
-          </ol>
-          {close}
-        </article>
-
         <article
           id="work"
           className={`${this.props.article === 'work' ? 'active' : ''} ${
@@ -127,9 +132,9 @@ class Main extends React.Component {
               </p>
               <iframe width="560" height="315" 
                 src="https://www.youtube.com/embed/_IkSe-zG4qA" 
-                title="YouTube video player" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>  
+                title="YouTube video player" frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen>
               </iframe>
               <a href= "https://github.com/husainhz7/AUV-FinalYear-Unity">Github link</a>
             </li>
@@ -364,6 +369,7 @@ class Main extends React.Component {
           {close}
         </article>
       </div>
+      </React.Fragment>
     )}
     />)
   }

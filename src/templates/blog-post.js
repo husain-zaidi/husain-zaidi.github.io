@@ -9,7 +9,7 @@ const BlogPostTemplate = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Blog`
 
   return (
-    <Layout location={location}>
+    <Layout location={location} pageClassName="blog-page">
      <Helmet
         title={siteTitle}
         meta={[

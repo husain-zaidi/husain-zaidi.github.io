@@ -4,6 +4,12 @@ import Layout from '../components/layout'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
+import urduNotebook from '../images/urdu-notebook.png'
+import pen from '../images/pen.png'
+import teaCup from '../images/tea-cup.png'
+import planter from '../images/planter.png'
+import compass from '../images/compass.png'
+import crowbar from '../images/crowbar.png'
 
 
 class IndexPage extends React.Component {
@@ -72,6 +78,42 @@ class IndexPage extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
+          <img
+            className="edge-object edge-object--pen"
+            src={pen}
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            className="edge-object edge-object--urdu-notebook"
+            src={urduNotebook}
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            className="edge-object edge-object--tea-cup"
+            src={teaCup}
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            className="edge-object edge-object--planter"
+            src={planter}
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            className="edge-object edge-object--compass"
+            src={compass}
+            alt=""
+            aria-hidden="true"
+          />
+          <img
+            className="edge-object edge-object--crowbar"
+            src={crowbar}
+            alt=""
+            aria-hidden="true"
+          />
           <div id="wrapper">
             <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
             <Main
