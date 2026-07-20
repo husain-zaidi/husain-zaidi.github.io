@@ -135,7 +135,7 @@ class Main extends React.Component {
                 title="YouTube video player" frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen>
-              </iframe>
+              </iframe> <br/>
               <a href= "https://github.com/husainhz7/AUV-FinalYear-Unity">Github link</a>
             </li>
             <br/>
@@ -190,10 +190,10 @@ class Main extends React.Component {
           <div className="about-copy">
           <p>
             <p>
-            Software Engineer 2 at Microsoft. Working for the Project Manager Agent in Teams. Built LLM orchestration for executing Tasks from Teams.Led the Data Engineering crew for Planner. Improved pipelines that process PBs of User logs using spark for Business metrics. Built REST APIs, messaging systems to enhance shared task lists across distributed instances, using ASP.NET.
+            Software Engineer 2 at Microsoft. Currently working for the Project Manager Agent in Teams. Evaluating MCPs. I have built LLM orchestration for executing Tasks from Teams. Led the Data Engineering crew for Planner. Improved pipelines that process PBs of User logs using spark for Business metrics. Built REST APIs, messaging systems to enhance shared task lists across distributed instances, using ASP.NET.
             </p>
             <p>
-            Building home robotics using ROS, Jetson Nano, and custom PCBs. Trying to SLAM using just stero cameras. 
+            Building home robotics using ROS, Jetson Nano, and custom PCBs. Trying to SLAM using just stereo cameras. Building the memory system for robots for the home.
             </p>
             <p>
             Was a hobbyist Game developer, huge fan of single player experiences. Experienced in Unity3D. 
@@ -267,7 +267,7 @@ class Main extends React.Component {
                     Doom
                   </li>
                   <li>
-                    Deathloop
+                    Indiana Jones and the Great Circle
                   </li>
                   <li>
                     Cyberpunk 2077

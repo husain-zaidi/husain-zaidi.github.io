@@ -4,12 +4,12 @@ import Layout from '../components/layout'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
-import urduNotebook from '../images/urdu-notebook.png'
+import urduNotebook from '../images/urdu-notebook.webp'
 import pen from '../images/pen.png'
-import teaCup from '../images/tea-cup.png'
-import planter from '../images/planter.png'
-import compass from '../images/compass.png'
-import crowbar from '../images/crowbar.png'
+import teaCup from '../images/tea-cup.webp'
+import planter from '../images/planter.webp'
+import compass from '../images/compass.webp'
+import crowbar from '../images/crowbar.webp'
 
 
 class IndexPage extends React.Component {

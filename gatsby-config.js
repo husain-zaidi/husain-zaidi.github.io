@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'HHZ Blog',
     author: 'Husain Zaidi',
-    description: 'Software engineer @microsoft',
+    description: 'Husain Zaidi, Software Developer expert in LLM, robotics',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
