@@ -74,7 +74,6 @@ Here is a report for a few episodes which shows which tasks it was able to compl
 
 <iframe src="/resources/poi_report/findingdory_partial_metrics_view.html" width="100%" height="600" title="FindingDory metrics report" frameBorder="0" allowFullScreen loading="lazy"></iframe>
 
-
 Memory is really crucial for human-robot interactivity. While VLMs excel at accomplishing singular tasks, the memory layer is what glues the tasks, human requests and environment together. I will be exploring more techniques to improve this component of the robot stack.
 
 Thank you to Karmesh Yadav et al. for building [finding-dory](https://arxiv.org/pdf/2506.15635), Abrar et al. for [Remembr](https://nvidia-ai-iot.github.io/remembr/) for initial robotic memory systems.

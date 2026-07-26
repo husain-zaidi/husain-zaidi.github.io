@@ -120,6 +120,27 @@ article.blog-post {
 	width: 48rem;
 	max-width: 92vw;
 
+	// Nested lists should not create a full paragraph-sized gap before the
+	// following top-level item.
+	li > ul,
+	li > ol {
+		margin-bottom: 0;
+	}
+
+	// Keep each top-level step visually separated without turning the Markdown
+	// into a loose list, which would also space out its nested bullets.
+	section > ul > li {
+		margin-bottom: 1rem;
+
+		> p {
+			margin-bottom: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
 	// Metric tables in blog posts use a compact grid so their values are easy
 	// to scan without taking the full article width.
 	table {
@@ -167,6 +188,7 @@ article.blog-post {
 		display: block;
 		width: 100%;
 		min-height: 38rem;
+		margin-bottom: _size(element-margin);
 		border: 0;
 	}
 }
