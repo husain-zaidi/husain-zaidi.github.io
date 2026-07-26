@@ -20,8 +20,8 @@ POIMemory turns the robot’s past observations into a searchable visual memory.
 ```mermaid 
 flowchart TB
       A[Robot explores] --> B[Store visible frame<br/>+ visual features]
-      B --> C[Add object categories,<br/>time, depth, event type]
-      C --> D[POI Memory]
+      B --> C[Add object categories,<br/>time, SigLip embedding, event type]
+      C --> D[POI Memory database]
 
       E[New language goal] --> F[Extract hints<br/>object, time, interaction]
       D --> G[Filter and rank<br/>relevant past frames]
@@ -34,6 +34,7 @@ flowchart TB
 
 - While exploring, the agent saves a compact record for every robot-visible frame.
 - Each record includes visual appearance, visible object/receptacle categories, time-of-day, and a simple interaction-event label.
+- It gets the object categories from simulator-provided segmentation generated from scene geometry
 
 POIRecord
 ```json
@@ -61,7 +62,7 @@ EventRecord
 - It filters the stored frames, then scores them by visual similarity, category match, temporal relevance, and interaction context. An embedding score is also calculated from the similarity of the query embedding and the stored-frame embedding using SigLip 2
   - For example: manipulation events get +0.25 if the goal had that interaction mentioned. 
 - It keeps a diverse set of high-scoring candidates rather than many nearly identical frames.
-  - A rarity boost is given based on object categories. Common categories such as `chair` or `table` receive only a small bonus. This ensures that noisy frames do not dominate the candidate sets.
+  - A rarity boost (IDF) is given based on object categories. Common categories such as `chair` or `table` receive only a small bonus. This ensures that noisy frames do not dominate the candidate sets.
 - Qwen sees only these candidate images and their metadata, then selects the frame indices most likely to satisfy the goal.
 - The system deliberately avoids oracle labels, PDDL goals, and global simulator state during retrieval.
 
