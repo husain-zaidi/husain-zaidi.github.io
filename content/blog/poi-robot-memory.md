@@ -2,7 +2,7 @@
 title: "POIMemory: A Robotic Memory Harness"
 date: "2026-07-19"
 description: "A SOTA embodied robotic memory harness that stores and retrieves Places of Interest for navigation"
-keywords: "findingdory, qwen, robotics, vlm, memory. harness"
+keywords: "findingdory, qwen, robotics, vlm, memory, harness"
 ---
 
 In the previous blog, I had explored finding-dory, a robotic eval that tested the in-context recall memory of Vision-Language models. Real-world robots will experience larger multiples of this context throughout operation. To effectively remember the places of interest, a system of record is required. 
