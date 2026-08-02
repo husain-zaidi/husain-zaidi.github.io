@@ -34,11 +34,11 @@ I had an alternative ChatGPT account where I performed a series of memory retrie
 ### Summarization limits
 We can test dreaming summarization limits by giving it a long text with many precise facts and numbers and then test retrieval of those details. I present my extempore story "The Forgetful Nine" narrated to ChatGPT.
 
-![](./blogPics/Pasted%20image%2020260802191335.png)
+![](./blogPics/Pasted-image-20260802191335.png)
 
 I started asking about details like "how many keys were needed to reach the vault" or "who was the third brother". It was not able to get details; in fact, it said it only had a truncated version of the story visible. It is definitely looking into the past conversation section where the message is only truncated to 100 tokens. 
 
-![](./blogPics/Pasted%20image%2020260802190251.png)
+![](./blogPics/Pasted-image-20260802190251.png)
 
 After dreaming (I manually clicked regenerate), it did not refuse but gave wrong answers. The summary did not contain any details, only a two-line description of the story along with its opinion that it is funny/dreamy. When asked about the keys, it confidently said 7. This seems to me like standard hallucination, sadly still present in the non-reasoning LLMs. 
 ### Lexical vs Semantic importance
@@ -57,7 +57,7 @@ I added 1000 near-similar facts and tried retrieving a random one from them. The
 "project X uses port Y". It could not retrieve any after 11 facts (Thus it has a top-k of 12 /s). Alas, this is because its chat history message gets truncated after 100 tokens. 
 
 Chat history format: 
-![](./blogPics/Pasted%20image%2020260802211722.png)
+![](./blogPics/Pasted-image-20260802211722.png)
 
 ### Vector distance
 I started with a simple fact: "my auto's back left door is blue". I then tried to determine whether there is any hint of retrieval from vector databases. We can measure this by asking increasingly distant questions about the fact and seeing whether it can recall. 
