@@ -7,14 +7,24 @@ import Layout from '../components/layout'
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Blog`
+  const postTitle = post.frontmatter.title
+  const postDescription = post.frontmatter.description || post.excerpt
+  const postUrl = `${location.origin}${location.pathname}`
 
   return (
     <Layout location={location} pageClassName="blog-page">
      <Helmet
-        title={siteTitle}
+        title={`${postTitle} | ${siteTitle}`}
         meta={[
-          { name: 'description', content: post.frontmatter.description || post.excerpt },
+          { name: 'description', content: postDescription },
           { name: 'keywords', content: post.frontmatter.keywords || 'husain, robotics, gaming' },
+          { property: 'og:title', content: postTitle },
+          { property: 'og:description', content: postDescription },
+          { property: 'og:type', content: 'article' },
+          { property: 'og:url', content: postUrl },
+          { name: 'twitter:card', content: 'summary' },
+          { name: 'twitter:title', content: postTitle },
+          { name: 'twitter:description', content: postDescription },
         ]}
       >
         <html lang="en" />
