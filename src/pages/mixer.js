@@ -77,12 +77,6 @@ const MixerPage = () => (
           </span>
         ))}
       </div>
-
-      <img
-        src={card}
-        alt="QR code"
-        style={{ width: 'min(240px, 60vw)', height: 'auto' }}
-      />
     </div>
   </Layout>
 )
