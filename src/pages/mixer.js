@@ -1,6 +1,5 @@
 import React from 'react'
 import Layout from '../components/layout'
-import card from '../images/card.png'
 
 const links = [
   { href: '/', label: 'Homepage', value: 'husain-zaidi.com' },
