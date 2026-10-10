@@ -48,6 +48,16 @@ const Header = props => {
         <li>
           <button
             onClick={() => {
+              props.onOpenArticle('games')
+            }}
+          >
+            <span className="icon fa-gamepad" aria-hidden="true"></span>
+            <span>Games</span>
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => {
               props.onOpenArticle('about')
             }}
           >

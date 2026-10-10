@@ -481,6 +481,69 @@ $green: #70c29a;
   max-width: 95vw;
 }
 
+#main article.games-article {
+  width: min(58rem, 95vw);
+  max-width: 95vw;
+}
+
+.game-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: 1.25rem;
+}
+
+.game-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba($brass, 0.52);
+  color: inherit;
+  background: linear-gradient(145deg, rgba(#211b13, 0.9), rgba($ink, 0.96));
+  box-shadow: inset 0 0 0 3px rgba($ink, 0.8), 0 10px 24px rgba(0, 0, 0, 0.34);
+  transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+
+  &:hover,
+  &:focus {
+    border-color: $brass-bright;
+    color: inherit;
+    transform: translateY(-3px);
+    box-shadow: inset 0 0 0 3px rgba($ink, 0.8), 0 14px 30px rgba(0, 0, 0, 0.48), 0 0 18px rgba($brass, 0.12);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: 1px solid rgba($brass, 0.38);
+  }
+}
+
+.game-card-copy {
+  display: grid;
+  gap: 0.55rem;
+  padding: 1.1rem 1.25rem 1.25rem;
+}
+
+.game-card-title {
+  color: #eadbbd;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.35rem;
+}
+
+.game-card-description {
+  color: rgba(#f5ead3, 0.58);
+  font-size: 0.82rem;
+}
+
+.game-card-link {
+  margin-top: 0.3rem;
+  color: $brass-bright;
+  font-family: _font(family-fixed);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 #wrapper.blog-page {
   background:
     linear-gradient(rgba($green, 0.025) 1px, transparent 1px),

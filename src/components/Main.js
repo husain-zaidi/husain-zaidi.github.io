@@ -176,6 +176,35 @@ class Main extends React.Component {
         </article>
 
         <article
+          id="games"
+          className={`games-article ${this.props.article === 'games' ? 'active' : ''} ${
+            this.props.articleTimeout ? 'timeout' : ''
+          }`}
+          style={{ display: 'none' }}
+        >
+          <h2 className="major">Games</h2>
+          <div className="game-gallery">
+            <a
+              className="game-card"
+              href="https://play.unity.com/en/games/08fe9e93-6329-4076-87f0-7796766975b2/performance-review"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://play.unity.com/api/v1/files/file/becdbb90-f4f3-4c8e-b031-2529fbe217c6/content"
+                alt="Performance Review game thumbnail"
+              />
+              <span className="game-card-copy">
+                <span className="game-card-title">Performance Review</span>
+                <span className="game-card-description">A regular performance review becomes a challenge in the arena.</span>
+                <span className="game-card-link">Play on Unity <span aria-hidden="true">&#8599;</span></span>
+              </span>
+            </a>
+          </div>
+          {close}
+        </article>
+
+        <article
           id="about"
           className={`about-article ${this.props.article === 'about' ? 'active' : ''} ${
             this.props.articleTimeout ? 'timeout' : ''
