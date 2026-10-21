@@ -5,9 +5,21 @@ import { withPrefix } from "gatsby"
 
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { performanceReviewOpen: false }
+  }
+
+  componentDidUpdate(previousProps) {
+    if (previousProps.article !== this.props.article && this.props.article !== 'games' && this.state.performanceReviewOpen) {
+      this.setState({ performanceReviewOpen: false })
+    }
+  }
+
   render() {
     const splatUrl = withPrefix('/splats/gs_PC_gaming.compressed.ply')
     const viewerUrl = `${withPrefix('/splat-viewer/')}${`?url=${encodeURIComponent(splatUrl)}`}`
+    const unityPlayUrl = 'https://play.unity.com/api/v1/games/game/08fe9e93-6329-4076-87f0-7796766975b2/build/latest/frame'
     
     let close = (
       <button
@@ -184,11 +196,12 @@ class Main extends React.Component {
         >
           <h2 className="major">Games</h2>
           <div className="game-gallery">
-            <a
+            <button
+              type="button"
               className="game-card"
-              href="https://play.unity.com/en/games/08fe9e93-6329-4076-87f0-7796766975b2/performance-review"
-              target="_blank"
-              rel="noopener noreferrer"
+              aria-expanded={this.state.performanceReviewOpen}
+              aria-controls="performance-review-player"
+              onClick={() => this.setState({ performanceReviewOpen: !this.state.performanceReviewOpen })}
             >
               <img
                 src="https://play.unity.com/api/v1/files/file/becdbb90-f4f3-4c8e-b031-2529fbe217c6/content"
@@ -197,10 +210,41 @@ class Main extends React.Component {
               <span className="game-card-copy">
                 <span className="game-card-title">Performance Review</span>
                 <span className="game-card-description">A regular performance review becomes a challenge in the arena.</span>
-                <span className="game-card-link">Play on Unity <span aria-hidden="true">&#8599;</span></span>
+                <span className="game-card-link">
+                  {this.state.performanceReviewOpen ? 'Close embedded game' : 'Play here'}
+                  <span aria-hidden="true"> {this.state.performanceReviewOpen ? '\u2212' : '\u25B6'}</span>
+                </span>
               </span>
-            </a>
+            </button>
           </div>
+          {this.state.performanceReviewOpen && (
+            <section id="performance-review-player" className="game-player" aria-label="Performance Review game player">
+              <div className="game-player-heading">
+                <div>
+                  <h3>Performance Review</h3>
+                  <p>Click inside the game to capture the mouse. Press Escape to release it.</p>
+                </div>
+                <a
+                  className="game-player-external"
+                  href="https://play.unity.com/en/games/08fe9e93-6329-4076-87f0-7796766975b2/performance-review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open on Unity <span aria-hidden="true">&#8599;</span>
+                </a>
+              </div>
+              <div className="game-frame">
+                <iframe
+                  src={unityPlayUrl}
+                  title="Performance Review Unity WebGL game"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen; gamepad; pointer-lock https://play.unity.com https://play-prod.struckd.com"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
+            </section>
+          )}
           {close}
         </article>
 
