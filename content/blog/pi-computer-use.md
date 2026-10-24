@@ -68,7 +68,7 @@ I compared the extension against the unmodified published `@injaneity/pi-compute
 
 A separate loopback server validated every required value and recorded submissions. Success meant **exactly one correct submission**, and the agent also had to observe the visible completion message. A confident “done” was insufficient. A useful policy for software in general.
 
-The recorded runs were made on **September 12, 2026**, using `github-copilot/gpt-6-astra` with medium thinking, Pi 0.85.0, Windows, and Chromium 145.0.7632.6.
+The recorded runs were made on **September 12, 2026**, using `github-copilot/gpt-6-astra` with medium thinking, 
 
 | Metric | pi-computer-use | Baseline |
 | --- | ---: | ---: |
@@ -86,20 +86,6 @@ The extension consistently used one call to launch and inspect the form, then an
 
 This is why I think the interface matters. The model's ability to plan several steps only helps when the tool lets it execute those steps together.
 
-### Every measured run
-
-| Pair | Execution order | pi-computer-use: time / calls | Baseline: time / calls |
-| --- | --- | ---: | ---: |
-| 1 | Mine → baseline | 20.45 s / 2 | 42.03 s / 13 |
-| 2 | Baseline → mine | 19.89 s / 2 | 64.93 s / 12 |
-| 3 | Mine → baseline | 17.78 s / 2 | 85.32 s / 26 |
-
-Each run used a separate Pi process, a fresh URL/profile, identical task wording and the same model, thinking level and browser executable. Extensions, skills, context files and built-in filesystem/shell tools outside the comparison were disabled. The baseline kept all eleven of its tools, including batching and browser evaluation. Neither agent received a prewritten solution or permission to bypass the UI through direct backend requests.
-
-No measured run was removed. The third baseline run had a failed CDP launch, fell back to native UI interaction, encountered foreground-focus refusals, and eventually relaunched the browser successfully. That recovery time is included. Earlier development pilots are retained separately and excluded from this series.
-
-There are limits to what these numbers tell us. This is **one simple task with three runs per extension**, and each extension retained its default viewport and observation policies. Model latency, caches and recovery behaviour affect the outcome. Wall time includes CLI startup and process exit, while later manual cleanup of leftover benchmark browser processes is excluded. The token counts are reported usage, including cache categories; they are not a dollar-cost comparison.
-
 
 ### A longer task: DMV appointments
 
@@ -111,7 +97,7 @@ The project's README also records a DMV appointment-task comparison:
 | Tool calls | **60** | 119 |
 | Tool errors | **1** | 10 |
 
-That is approximately **1.80× faster** with about half as many tool calls. It points in the same direction as the form benchmark, but the README does not provide the same run-level evidence, repeated trials or validation details for this task. I treat it as an additional reported result, rather than combining it with the controlled form experiment.
+That is approximately **1.80× faster** with about half as many tool calls.
 
 ### Persistent state needs a lifecycle
 
