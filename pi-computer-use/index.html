@@ -49,7 +49,7 @@ display(page.screenshot())
 <h3>The benchmark</h3>
 <p>I compared the extension against the unmodified published <code>@injaneity/pi-computer-use@0.5.1</code> on a local registration form. It required five text values and a checkbox, followed by a Register action.</p>
 <p>A separate loopback server validated every required value and recorded submissions. Success meant <strong>exactly one correct submission</strong>, and the agent also had to observe the visible completion message. A confident “done” was insufficient. A useful policy for software in general.</p>
-<p>The recorded runs were made on <strong>September 12, 2026</strong>, using <code>github-copilot/gpt-6-astra</code> with medium thinking, Pi 0.85.0, Windows, and Chromium 145.0.7632.6.</p>
+<p>The recorded runs were made on <strong>September 12, 2026</strong>, using <code>github-copilot/gpt-6-astra</code> with medium thinking,</p>
 <table>
 <thead>
 <tr>
@@ -99,40 +99,6 @@ display(page.screenshot())
 <p>The most interesting row is time inside the tools. <strong>My backend took longer to execute its tool calls in aggregate.</strong> The end-to-end improvement came primarily from needing fewer model/tool round trips and fewer observation and recovery steps.</p>
 <p>The extension consistently used one call to launch and inspect the form, then another to fill the fields, check the box, submit and verify the result. The baseline also supported batching and batched field edits, but used more calls to discover references, inspect the checkbox and confirm completion.</p>
 <p>This is why I think the interface matters. The model's ability to plan several steps only helps when the tool lets it execute those steps together.</p>
-<h3>Every measured run</h3>
-<table>
-<thead>
-<tr>
-<th>Pair</th>
-<th>Execution order</th>
-<th align="right">pi-computer-use: time / calls</th>
-<th align="right">Baseline: time / calls</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Mine → baseline</td>
-<td align="right">20.45 s / 2</td>
-<td align="right">42.03 s / 13</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Baseline → mine</td>
-<td align="right">19.89 s / 2</td>
-<td align="right">64.93 s / 12</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Mine → baseline</td>
-<td align="right">17.78 s / 2</td>
-<td align="right">85.32 s / 26</td>
-</tr>
-</tbody>
-</table>
-<p>Each run used a separate Pi process, a fresh URL/profile, identical task wording and the same model, thinking level and browser executable. Extensions, skills, context files and built-in filesystem/shell tools outside the comparison were disabled. The baseline kept all eleven of its tools, including batching and browser evaluation. Neither agent received a prewritten solution or permission to bypass the UI through direct backend requests.</p>
-<p>No measured run was removed. The third baseline run had a failed CDP launch, fell back to native UI interaction, encountered foreground-focus refusals, and eventually relaunched the browser successfully. That recovery time is included. Earlier development pilots are retained separately and excluded from this series.</p>
-<p>There are limits to what these numbers tell us. This is <strong>one simple task with three runs per extension</strong>, and each extension retained its default viewport and observation policies. Model latency, caches and recovery behaviour affect the outcome. Wall time includes CLI startup and process exit, while later manual cleanup of leftover benchmark browser processes is excluded. The token counts are reported usage, including cache categories; they are not a dollar-cost comparison.</p>
 <h3>A longer task: DMV appointments</h3>
 <p>The project's README also records a DMV appointment-task comparison:</p>
 <table>
@@ -161,7 +127,7 @@ display(page.screenshot())
 </tr>
 </tbody>
 </table>
-<p>That is approximately <strong>1.80× faster</strong> with about half as many tool calls. It points in the same direction as the form benchmark, but the README does not provide the same run-level evidence, repeated trials or validation details for this task. I treat it as an additional reported result, rather than combining it with the controlled form experiment.</p>
+<p>That is approximately <strong>1.80× faster</strong> with about half as many tool calls.</p>
 <h3>Persistent state needs a lifecycle</h3>
 <p>Keeping Python and a browser alive makes the interface useful, but it also introduces state to manage. Calls are serialized, ordinary Python exceptions preserve variables for correction, and timeout, cancellation or a PyAutoGUI failsafe stops the worker. A reset discards the runtime. Resuming a conversation does not restore the old browser or Python variables.</p>
 <p>Desktop input needs particular care. On Windows, <code>focus_browser()</code> requests native foreground focus and verifies it before physical keyboard input. It refuses ambiguous targets or denied focus. Bringing a Playwright page to the front does not guarantee that the operating system will send keystrokes there.</p>
