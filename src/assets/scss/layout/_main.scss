@@ -223,6 +223,29 @@ article.blog-post {
 		min-width: 0;
 	}
 
+	.about-kmo {
+		margin: -0.5rem 0 1.5rem;
+	}
+
+	.kmo-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.35rem 0.7rem;
+		border: 1px solid transparentize(_palette(fg), 0.75);
+		border-radius: _size(border-radius);
+		font-size: 0.75rem;
+		letter-spacing: 0.08em;
+		text-decoration: none;
+		transition: border-color 0.2s ease, background-color 0.2s ease;
+
+		&:hover,
+		&:focus-visible {
+			border-color: _palette(fg);
+			background-color: transparentize(_palette(fg), 0.95);
+		}
+	}
+
 	.about-splat {
 		margin: 0;
 

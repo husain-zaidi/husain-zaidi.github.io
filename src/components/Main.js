@@ -268,6 +268,11 @@ class Main extends React.Component {
             <p>
             Building home robotics using ROS, Jetson Nano, and custom PCBs. Trying to SLAM using just stereo cameras. Building the memory system for robots for the home.
             </p>
+            <p className="about-kmo">
+              <a className="kmo-link" href="https://kmo.husain-zaidi.com" aria-label="Meet KMO, my home robot">
+                Meet KMO <span aria-hidden="true">&#8599;</span>
+              </a>
+            </p>
             <p>
             Was a hobbyist Game developer, huge fan of single player experiences. Experienced in Unity3D. 
             Dabbled in Artificial neural networks and Deep Reinforcement Learning in Unity. Used Pytorch, Unity ml-agents. 
